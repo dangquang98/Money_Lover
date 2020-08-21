@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pJf-XY-yiY">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--LoginController-->
+        <scene sceneID="Kca-Fz-HET">
+            <objects>
+                <viewController storyboardIdentifier="LoginController" title="LoginController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pJf-XY-yiY" customClass="LoginController" customModule="MoneyLover" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleAspectFit" id="rAQ-hJ-cTB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <userGuides>
+                            <userLayoutGuide location="16" affinity="minX"/>
+                            <userLayoutGuide location="398" affinity="minX"/>
+                        </userGuides>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gg7-Oj-WvG" customClass="SignIn" customModule="MoneyLover" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nkh-JS-hrO" customClass="SignUp" customModule="MoneyLover" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YUb-K7-eII" firstAttribute="trailing" secondItem="gg7-Oj-WvG" secondAttribute="trailing" id="7bb-Kd-fHy"/>
+                            <constraint firstItem="Nkh-JS-hrO" firstAttribute="trailing" secondItem="YUb-K7-eII" secondAttribute="trailing" id="FHu-PM-LHy"/>
+                            <constraint firstItem="YUb-K7-eII" firstAttribute="bottom" secondItem="gg7-Oj-WvG" secondAttribute="bottom" id="FRH-TA-d4H"/>
+                            <constraint firstItem="gg7-Oj-WvG" firstAttribute="top" secondItem="YUb-K7-eII" secondAttribute="top" id="KgX-5q-2af"/>
+                            <constraint firstItem="gg7-Oj-WvG" firstAttribute="leading" secondItem="YUb-K7-eII" secondAttribute="leading" id="aSX-G5-ZjA"/>
+                            <constraint firstItem="Nkh-JS-hrO" firstAttribute="leading" secondItem="YUb-K7-eII" secondAttribute="leading" id="ahi-Hw-Era"/>
+                            <constraint firstItem="YUb-K7-eII" firstAttribute="bottom" secondItem="Nkh-JS-hrO" secondAttribute="bottom" id="qRs-nT-BJK"/>
+                            <constraint firstItem="Nkh-JS-hrO" firstAttribute="top" secondItem="YUb-K7-eII" secondAttribute="top" id="rtb-WJ-rzf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YUb-K7-eII"/>
+                    </view>
+                    <connections>
+                        <outlet property="signIn" destination="gg7-Oj-WvG" id="04V-cC-9JK"/>
+                        <outlet property="signUp" destination="Nkh-JS-hrO" id="Uz7-dd-5eO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="whB-cc-VEv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44.927536231884062" y="-44.196428571428569"/>
+        </scene>
+    </scenes>
+</document>

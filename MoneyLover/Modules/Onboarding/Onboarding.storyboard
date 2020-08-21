@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7oy-gN-ryP">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding Controller-->
+        <scene sceneID="ksq-lx-m5c">
+            <objects>
+                <viewController id="7oy-gN-ryP" customClass="OnboardingController" customModule="MoneyLover" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hHU-8a-iRn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjS-Wf-F73">
+                                <rect key="frame" x="0.0" y="5" width="414" height="597.33333333333337"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="muK-iM-Ph8">
+                                <rect key="frame" x="70" y="610.33333333333337" width="274" height="36.666666666666629"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKS-mB-Iqd">
+                                <rect key="frame" x="70" y="716" width="274" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="fXe-nt-j8t"/>
+                                </constraints>
+                                <state key="normal" title="NEW TO MONEY LOVER">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpTap:" destination="7oy-gN-ryP" eventType="touchUpInside" id="avT-He-BTC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZB7-NB-cgD">
+                                <rect key="frame" x="70" y="764" width="274" height="40"/>
+                                <color key="backgroundColor" red="0.43529411764705883" green="0.61960784313725492" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="ALREADY HAVE ACCOUNT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginTap:" destination="7oy-gN-ryP" eventType="touchUpInside" id="uaF-n6-5X3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.23921568627450979" green="0.45882352941176469" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZB7-NB-cgD" firstAttribute="trailing" secondItem="qKS-mB-Iqd" secondAttribute="trailing" id="0cg-TV-J3j"/>
+                            <constraint firstItem="fjS-Wf-F73" firstAttribute="height" secondItem="hHU-8a-iRn" secondAttribute="height" multiplier="2/3" id="1sf-E3-2Pf"/>
+                            <constraint firstItem="ZB7-NB-cgD" firstAttribute="top" secondItem="qKS-mB-Iqd" secondAttribute="bottom" constant="8" id="32S-mo-TGl"/>
+                            <constraint firstItem="DSt-8C-QLl" firstAttribute="top" secondItem="fjS-Wf-F73" secondAttribute="top" constant="39" id="5Gu-LB-ITU"/>
+                            <constraint firstItem="DSt-8C-QLl" firstAttribute="trailing" secondItem="muK-iM-Ph8" secondAttribute="trailing" constant="70" id="5ld-iv-VmW"/>
+                            <constraint firstItem="fjS-Wf-F73" firstAttribute="width" secondItem="hHU-8a-iRn" secondAttribute="width" id="Ihi-i1-rBY"/>
+                            <constraint firstItem="DSt-8C-QLl" firstAttribute="bottom" secondItem="muK-iM-Ph8" secondAttribute="bottom" multiplier="1.1" constant="150.29999999999995" id="QDt-Yj-ga2"/>
+                            <constraint firstItem="muK-iM-Ph8" firstAttribute="top" secondItem="fjS-Wf-F73" secondAttribute="bottom" constant="8" id="UBW-AF-mmc"/>
+                            <constraint firstItem="ZB7-NB-cgD" firstAttribute="leading" secondItem="qKS-mB-Iqd" secondAttribute="leading" id="VJq-VB-bd2"/>
+                            <constraint firstItem="qKS-mB-Iqd" firstAttribute="leading" secondItem="DSt-8C-QLl" secondAttribute="leading" constant="70" id="clJ-LP-PBW"/>
+                            <constraint firstItem="qKS-mB-Iqd" firstAttribute="height" secondItem="ZB7-NB-cgD" secondAttribute="height" id="e48-yl-mlO"/>
+                            <constraint firstItem="DSt-8C-QLl" firstAttribute="trailing" secondItem="qKS-mB-Iqd" secondAttribute="trailing" constant="70" id="kTw-aU-hi6"/>
+                            <constraint firstItem="muK-iM-Ph8" firstAttribute="leading" secondItem="DSt-8C-QLl" secondAttribute="leading" constant="70" id="mve-jd-fYT"/>
+                            <constraint firstItem="fjS-Wf-F73" firstAttribute="centerX" secondItem="DSt-8C-QLl" secondAttribute="centerX" id="n4I-sd-fnH"/>
+                            <constraint firstItem="qKS-mB-Iqd" firstAttribute="top" secondItem="muK-iM-Ph8" secondAttribute="bottom" constant="69" id="s7p-e1-B4X"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DSt-8C-QLl"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnNewUse" destination="qKS-mB-Iqd" id="sau-Wc-wqV"/>
+                        <outlet property="btnOldUse" destination="ZB7-NB-cgD" id="r8q-81-CVt"/>
+                        <outlet property="pageControl" destination="muK-iM-Ph8" id="1Tl-9O-RoW"/>
+                        <outlet property="scrollView" destination="fjS-Wf-F73" id="sS8-pk-Um2"/>
+                        <outlet property="scrollViewHeightConstraint" destination="1sf-E3-2Pf" id="EKV-Wh-j7A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hGo-n8-LQa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-373.91304347826087" y="-95.089285714285708"/>
+        </scene>
+    </scenes>
+</document>

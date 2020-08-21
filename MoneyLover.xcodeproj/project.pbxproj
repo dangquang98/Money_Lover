@@ -1,0 +1,552 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6804C42724EF68E60015DF93 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6804C42624EF68E60015DF93 /* LoginController.swift */; };
+		6804C42924EF69190015DF93 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6804C42824EF69190015DF93 /* Login.storyboard */; };
+		6812758924EFAF130028B004 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812758824EFAF130028B004 /* SignInController.swift */; };
+		6814639E24ED1EEB00D86C79 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6814639D24ED1EEB00D86C79 /* OnboardingController.swift */; };
+		681463A024ED1FC300D86C79 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6814639F24ED1FC300D86C79 /* Onboarding.storyboard */; };
+		681463A424ED254100D86C79 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681463A324ED254100D86C79 /* Slide.xib */; };
+		681463A824ED2B1200D86C79 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681463A724ED2B1200D86C79 /* Slide.swift */; };
+		682DB27A24EFDCD200932F5B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682DB27924EFDCD200932F5B /* BaseView.swift */; };
+		68556E2724ED107D001BAE6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68556E2624ED107D001BAE6F /* AppDelegate.swift */; };
+		68556E2E24ED107D001BAE6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68556E2C24ED107D001BAE6F /* Main.storyboard */; };
+		68556E3024ED107F001BAE6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68556E2F24ED107F001BAE6F /* Assets.xcassets */; };
+		68556E3324ED107F001BAE6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68556E3124ED107F001BAE6F /* LaunchScreen.storyboard */; };
+		68A5501E24EFC77E00E7FC43 /* SignIn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68A5501D24EFC77E00E7FC43 /* SignIn.xib */; };
+		68A5502024EFC78E00E7FC43 /* SignUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68A5501F24EFC78E00E7FC43 /* SignUp.xib */; };
+		68A5502224EFCC8100E7FC43 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A5502124EFCC8100E7FC43 /* SignIn.swift */; };
+		68A5502424EFCC8D00E7FC43 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A5502324EFCC8D00E7FC43 /* SignUp.swift */; };
+		68A5502724EFD62100E7FC43 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A5502624EFD62100E7FC43 /* UIView+Ext.swift */; };
+		A61F0DF701E24571AAFEF8B6 /* Pods_MoneyLover.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFB51FBEEC8DDDA369D77BE /* Pods_MoneyLover.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3AFB51FBEEC8DDDA369D77BE /* Pods_MoneyLover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyLover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6804C42624EF68E60015DF93 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		6804C42824EF69190015DF93 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		6812758824EFAF130028B004 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
+		6814639D24ED1EEB00D86C79 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
+		6814639F24ED1FC300D86C79 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		681463A324ED254100D86C79 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
+		681463A724ED2B1200D86C79 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		682DB27924EFDCD200932F5B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		68556E2324ED107D001BAE6F /* MoneyLover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyLover.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		68556E2624ED107D001BAE6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		68556E2D24ED107D001BAE6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		68556E2F24ED107F001BAE6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		68556E3224ED107F001BAE6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		68556E3424ED107F001BAE6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68A5501D24EFC77E00E7FC43 /* SignIn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignIn.xib; sourceTree = "<group>"; };
+		68A5501F24EFC78E00E7FC43 /* SignUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUp.xib; sourceTree = "<group>"; };
+		68A5502124EFCC8100E7FC43 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		68A5502324EFCC8D00E7FC43 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		68A5502624EFD62100E7FC43 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		A7D934915B2134C4465D6CF7 /* Pods-MoneyLover.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyLover.debug.xcconfig"; path = "Target Support Files/Pods-MoneyLover/Pods-MoneyLover.debug.xcconfig"; sourceTree = "<group>"; };
+		EBBF51A1DAA5C2FE769A91C4 /* Pods-MoneyLover.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyLover.release.xcconfig"; path = "Target Support Files/Pods-MoneyLover/Pods-MoneyLover.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		68556E2024ED107D001BAE6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A61F0DF701E24571AAFEF8B6 /* Pods_MoneyLover.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23F4929A18775B93751D912E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7D934915B2134C4465D6CF7 /* Pods-MoneyLover.debug.xcconfig */,
+				EBBF51A1DAA5C2FE769A91C4 /* Pods-MoneyLover.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		2A7FF9BE63464CB0921CEFD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3AFB51FBEEC8DDDA369D77BE /* Pods_MoneyLover.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6814639A24ED1AA500D86C79 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		6814639B24ED1E6D00D86C79 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				68A5501B24EFC6DA00E7FC43 /* Views */,
+				6814639D24ED1EEB00D86C79 /* OnboardingController.swift */,
+				6814639F24ED1FC300D86C79 /* Onboarding.storyboard */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		682DB27824EFDCC600932F5B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				682DB27924EFDCD200932F5B /* BaseView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		68556E1A24ED107D001BAE6F = {
+			isa = PBXGroup;
+			children = (
+				68556E2524ED107D001BAE6F /* MoneyLover */,
+				68556E2424ED107D001BAE6F /* Products */,
+				23F4929A18775B93751D912E /* Pods */,
+				2A7FF9BE63464CB0921CEFD9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		68556E2424ED107D001BAE6F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				68556E2324ED107D001BAE6F /* MoneyLover.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		68556E2524ED107D001BAE6F /* MoneyLover */ = {
+			isa = PBXGroup;
+			children = (
+				68556E3B24ED11B1001BAE6F /* Models */,
+				68556E3A24ED10AA001BAE6F /* Modules */,
+				68556E2624ED107D001BAE6F /* AppDelegate.swift */,
+				68556E2C24ED107D001BAE6F /* Main.storyboard */,
+				68556E2F24ED107F001BAE6F /* Assets.xcassets */,
+				68556E3124ED107F001BAE6F /* LaunchScreen.storyboard */,
+				68556E3424ED107F001BAE6F /* Info.plist */,
+			);
+			path = MoneyLover;
+			sourceTree = "<group>";
+		};
+		68556E3A24ED10AA001BAE6F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				682DB27824EFDCC600932F5B /* Base */,
+				68A5502524EFD5E100E7FC43 /* Extensions */,
+				6814639B24ED1E6D00D86C79 /* Onboarding */,
+				6814639A24ED1AA500D86C79 /* Splash */,
+				68556E3C24ED11C0001BAE6F /* Auth */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		68556E3B24ED11B1001BAE6F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		68556E3C24ED11C0001BAE6F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				68A5501C24EFC73900E7FC43 /* Views */,
+				6804C42624EF68E60015DF93 /* LoginController.swift */,
+				6804C42824EF69190015DF93 /* Login.storyboard */,
+				6812758824EFAF130028B004 /* SignInController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		68A5501B24EFC6DA00E7FC43 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				681463A324ED254100D86C79 /* Slide.xib */,
+				681463A724ED2B1200D86C79 /* Slide.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		68A5501C24EFC73900E7FC43 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				68A5501D24EFC77E00E7FC43 /* SignIn.xib */,
+				68A5501F24EFC78E00E7FC43 /* SignUp.xib */,
+				68A5502124EFCC8100E7FC43 /* SignIn.swift */,
+				68A5502324EFCC8D00E7FC43 /* SignUp.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		68A5502524EFD5E100E7FC43 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				68A5502624EFD62100E7FC43 /* UIView+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		68556E2224ED107D001BAE6F /* MoneyLover */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68556E3724ED107F001BAE6F /* Build configuration list for PBXNativeTarget "MoneyLover" */;
+			buildPhases = (
+				DF9B606C61ED162DD6E3948A /* [CP] Check Pods Manifest.lock */,
+				68556E1F24ED107D001BAE6F /* Sources */,
+				68556E2024ED107D001BAE6F /* Frameworks */,
+				68556E2124ED107D001BAE6F /* Resources */,
+				37EF1993DC8BF13D16B47C14 /* [CP] Embed Pods Frameworks */,
+				68F0981924ED2F9000195600 /* Swiftlint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoneyLover;
+			productName = MoneyLover;
+			productReference = 68556E2324ED107D001BAE6F /* MoneyLover.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		68556E1B24ED107D001BAE6F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = Interns;
+				TargetAttributes = {
+					68556E2224ED107D001BAE6F = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = 68556E1E24ED107D001BAE6F /* Build configuration list for PBXProject "MoneyLover" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 68556E1A24ED107D001BAE6F;
+			productRefGroup = 68556E2424ED107D001BAE6F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				68556E2224ED107D001BAE6F /* MoneyLover */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		68556E2124ED107D001BAE6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				681463A424ED254100D86C79 /* Slide.xib in Resources */,
+				68A5502024EFC78E00E7FC43 /* SignUp.xib in Resources */,
+				68556E3324ED107F001BAE6F /* LaunchScreen.storyboard in Resources */,
+				6804C42924EF69190015DF93 /* Login.storyboard in Resources */,
+				68A5501E24EFC77E00E7FC43 /* SignIn.xib in Resources */,
+				68556E3024ED107F001BAE6F /* Assets.xcassets in Resources */,
+				68556E2E24ED107D001BAE6F /* Main.storyboard in Resources */,
+				681463A024ED1FC300D86C79 /* Onboarding.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37EF1993DC8BF13D16B47C14 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyLover/Pods-MoneyLover-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyLover/Pods-MoneyLover-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyLover/Pods-MoneyLover-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68F0981924ED2F9000195600 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		DF9B606C61ED162DD6E3948A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoneyLover-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		68556E1F24ED107D001BAE6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68A5502724EFD62100E7FC43 /* UIView+Ext.swift in Sources */,
+				68A5502424EFCC8D00E7FC43 /* SignUp.swift in Sources */,
+				681463A824ED2B1200D86C79 /* Slide.swift in Sources */,
+				68A5502224EFCC8100E7FC43 /* SignIn.swift in Sources */,
+				6804C42724EF68E60015DF93 /* LoginController.swift in Sources */,
+				68556E2724ED107D001BAE6F /* AppDelegate.swift in Sources */,
+				682DB27A24EFDCD200932F5B /* BaseView.swift in Sources */,
+				6812758924EFAF130028B004 /* SignInController.swift in Sources */,
+				6814639E24ED1EEB00D86C79 /* OnboardingController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		68556E2C24ED107D001BAE6F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68556E2D24ED107D001BAE6F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		68556E3124ED107F001BAE6F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68556E3224ED107F001BAE6F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		68556E3524ED107F001BAE6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		68556E3624ED107F001BAE6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		68556E3824ED107F001BAE6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7D934915B2134C4465D6CF7 /* Pods-MoneyLover.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = MoneyLover/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.2359media.MoneyLover;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		68556E3924ED107F001BAE6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBBF51A1DAA5C2FE769A91C4 /* Pods-MoneyLover.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = MoneyLover/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.2359media.MoneyLover;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		68556E1E24ED107D001BAE6F /* Build configuration list for PBXProject "MoneyLover" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68556E3524ED107F001BAE6F /* Debug */,
+				68556E3624ED107F001BAE6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68556E3724ED107F001BAE6F /* Build configuration list for PBXNativeTarget "MoneyLover" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68556E3824ED107F001BAE6F /* Debug */,
+				68556E3924ED107F001BAE6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 68556E1B24ED107D001BAE6F /* Project object */;
+}

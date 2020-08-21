@@ -1,0 +1,25 @@
+disabled_rules: # rule identifiers to exclude from running
+    - empty_count
+    - trailing_whitespace
+    - identifier_name
+    - nesting
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+    - Carthage
+    - Pods
+    - R.generated.swift
+    - Premium MallTests
+    - Premium MallUITests
+analyzer_rules: # Rules run by `swiftlint analyze` (experimental)
+    - explicit_self
+
+line_length: 180
+large_tuple: 3
+cyclomatic_complexity: 30
+
+custom_rules:
+  vertical_whitespace_closing_braces:
+    included: ".*.swift"
+    regex: '\n[ \t]*\n[ \t]*[)}\]]'
+    name: "Vertical Whitespace before Closing Braces"
+    message: "Don't include vertical whitespace (empty line) before closing braces."
+    severity: warning
