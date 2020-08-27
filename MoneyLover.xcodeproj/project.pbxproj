@@ -9,7 +9,13 @@
 /* Begin PBXBuildFile section */
 		6804C42724EF68E60015DF93 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6804C42624EF68E60015DF93 /* LoginController.swift */; };
 		6804C42924EF69190015DF93 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6804C42824EF69190015DF93 /* Login.storyboard */; };
-		6812758924EFAF130028B004 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812758824EFAF130028B004 /* SignInController.swift */; };
+		6807995B24F673EB003E8572 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6807995A24F673EB003E8572 /* StringExtension.swift */; };
+		6807995D24F76801003E8572 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6807995C24F76801003E8572 /* SignInModel.swift */; };
+		6807995F24F7C141003E8572 /* MLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6807995E24F7C141003E8572 /* MLError.swift */; };
+		6808184D24F4B50700B4853E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6808184C24F4B50700B4853E /* Constant.swift */; };
+		6808184F24F4B63000B4853E /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6808184E24F4B63000B4853E /* SignUpModel.swift */; };
+		6808185224F4B6FD00B4853E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6808185124F4B6FD00B4853E /* APIManager.swift */; };
+		6808185424F505AF00B4853E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6808185324F505AF00B4853E /* UserModel.swift */; };
 		6814639E24ED1EEB00D86C79 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6814639D24ED1EEB00D86C79 /* OnboardingController.swift */; };
 		681463A024ED1FC300D86C79 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6814639F24ED1FC300D86C79 /* Onboarding.storyboard */; };
 		681463A424ED254100D86C79 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681463A324ED254100D86C79 /* Slide.xib */; };
@@ -31,7 +37,13 @@
 		3AFB51FBEEC8DDDA369D77BE /* Pods_MoneyLover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyLover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6804C42624EF68E60015DF93 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		6804C42824EF69190015DF93 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		6812758824EFAF130028B004 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
+		6807995A24F673EB003E8572 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		6807995C24F76801003E8572 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
+		6807995E24F7C141003E8572 /* MLError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLError.swift; sourceTree = "<group>"; };
+		6808184C24F4B50700B4853E /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		6808184E24F4B63000B4853E /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		6808185124F4B6FD00B4853E /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		6808185324F505AF00B4853E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		6814639D24ED1EEB00D86C79 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		6814639F24ED1FC300D86C79 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		681463A324ED254100D86C79 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
@@ -81,6 +93,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6807995924F673D5003E8572 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6807995A24F673EB003E8572 /* StringExtension.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		6808184B24F4B4EB00B4853E /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				6808184C24F4B50700B4853E /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		6808185024F4B6E200B4853E /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				6808185124F4B6FD00B4853E /* APIManager.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
 		6814639A24ED1AA500D86C79 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +163,9 @@
 		68556E2524ED107D001BAE6F /* MoneyLover */ = {
 			isa = PBXGroup;
 			children = (
+				6807995924F673D5003E8572 /* Utilities */,
+				6808185024F4B6E200B4853E /* APIManager */,
+				6808184B24F4B4EB00B4853E /* Constant */,
 				68556E3B24ED11B1001BAE6F /* Models */,
 				68556E3A24ED10AA001BAE6F /* Modules */,
 				68556E2624ED107D001BAE6F /* AppDelegate.swift */,
@@ -153,6 +192,10 @@
 		68556E3B24ED11B1001BAE6F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6808184E24F4B63000B4853E /* SignUpModel.swift */,
+				6808185324F505AF00B4853E /* UserModel.swift */,
+				6807995C24F76801003E8572 /* SignInModel.swift */,
+				6807995E24F7C141003E8572 /* MLError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -163,7 +206,6 @@
 				68A5501C24EFC73900E7FC43 /* Views */,
 				6804C42624EF68E60015DF93 /* LoginController.swift */,
 				6804C42824EF69190015DF93 /* Login.storyboard */,
-				6812758824EFAF130028B004 /* SignInController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -338,11 +380,17 @@
 				68A5502724EFD62100E7FC43 /* UIView+Ext.swift in Sources */,
 				68A5502424EFCC8D00E7FC43 /* SignUp.swift in Sources */,
 				681463A824ED2B1200D86C79 /* Slide.swift in Sources */,
+				6807995D24F76801003E8572 /* SignInModel.swift in Sources */,
 				68A5502224EFCC8100E7FC43 /* SignIn.swift in Sources */,
+				6808185224F4B6FD00B4853E /* APIManager.swift in Sources */,
 				6804C42724EF68E60015DF93 /* LoginController.swift in Sources */,
 				68556E2724ED107D001BAE6F /* AppDelegate.swift in Sources */,
 				682DB27A24EFDCD200932F5B /* BaseView.swift in Sources */,
-				6812758924EFAF130028B004 /* SignInController.swift in Sources */,
+				6808184F24F4B63000B4853E /* SignUpModel.swift in Sources */,
+				6808184D24F4B50700B4853E /* Constant.swift in Sources */,
+				6808185424F505AF00B4853E /* UserModel.swift in Sources */,
+				6807995B24F673EB003E8572 /* StringExtension.swift in Sources */,
+				6807995F24F7C141003E8572 /* MLError.swift in Sources */,
 				6814639E24ED1EEB00D86C79 /* OnboardingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
