@@ -13,3 +13,7 @@ struct Constant {
 	static let signup_url: String = "\(base_url)/register"
 	static let signin_url: String = "\(base_url)/login"
 }
+
+struct TokenKey {
+	static let userLogin = "USER_LOGIN_KEY"
+}

@@ -16,14 +16,14 @@ class APIManager {
 		return AF.request(url, method: .post, parameters: params, encoder: JSONParameterEncoder.default, headers: headers)
 	}
 
-	func callingSignUpAPI(signup: SignUpModel, completionHandler: @escaping ((UserModel?, String?) -> Void)) {
+	func callingSignUpAPI(signup: SignUpModel, completionHandler: @escaping ((UserModel.User?, String?) -> Void)) {
 		let headers: HTTPHeaders = [
 			.contentType("application/json")
 		]
 		post(url: Constant.signup_url, params: signup, headers: headers).responseJSON {[weak self] response in
 				if response.response?.statusCode == 200 {
 					// Success
-					self?.castResponseObject(UserModel.self, data: response.data) { model, errorStr in
+					self?.castResponseObject(UserModel.User.self, data: response.data) { model, errorStr in
 						completionHandler(model, errorStr)
 					}
 				} else {
@@ -61,6 +61,7 @@ class APIManager {
 		do {
 			let model = try decoder.decode(T.self, from: data)
 			completionHandler(model, nil)
+			print(model)
 		} catch {
 			completionHandler(nil, "Cannot decode \(T.self)")
 		}

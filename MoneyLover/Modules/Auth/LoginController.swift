@@ -108,17 +108,13 @@ extension LoginController: EnableSignUpDelegate {
 		guard let email = signUp.emailTextField.text else { return }
 		guard let password = signUp.passwordTextField.text else { return }
 		guard let confirmPassword = signUp.confirmPasswordTextField.text else { return }
-//				if !fName.isEmpty || !lName.isEmpty || !email.isEmpty || !password.isEmpty || !confirmPassword.isEmpty {
-//					signUp.signUpBtn.isEnabled = false
-//				} else {
-//					signUp.signUpBtn.isEnabled = true
-//				}
+
 		if email.checkIfEmailIsValid() == false {
 			displayAlert(userMessage: "Please enter valid email")
 		}
-		if password.checkIfPasswordIsValid() == false {
-			displayAlert(userMessage: "Please enter valid password")
-		}
+//		if password.checkIfPasswordIsValid() == false {
+//			displayAlert(userMessage: "Please enter valid password")
+//		}
 		if password != confirmPassword {
 			displayAlert(userMessage: "Passwords do not match")
 			return
@@ -127,6 +123,7 @@ extension LoginController: EnableSignUpDelegate {
 		APIManager.shareInstance.callingSignUpAPI(signup: signup) {[weak self] (user, errStr) in
 			if let user = user {
 				//Success
+				self?.displayAlert(userMessage: "Register is successfuly")
 			} else if let errStr = errStr {
 				//Fail
 				self?.displayAlert(userMessage: errStr)
@@ -140,16 +137,17 @@ extension LoginController: EnableSignInDelegate {
 		guard let email = signIn.emailTextField.text else { return }
 		guard let password = signIn.passwordTextField.text else { return }
 
-		if email.checkIfEmailIsValid() == false {
-			displayAlert(userMessage: "Please enter valid email")
-		}
-		if password.checkIfPasswordIsValid() == false {
-			displayAlert(userMessage: "Please enter valid password")
-		}
+//		if email.checkIfEmailIsValid() == false {
+//			displayAlert(userMessage: "Please enter valid email")
+//		}
+//		if password.checkIfPasswordIsValid() == false {
+//			displayAlert(userMessage: "Please enter valid password")
+//		}
 		let signin = SignInModel(email: email, password: password)
 		APIManager.shareInstance.callingSignInAPI(signin: signin) {[weak self] (user, errStr) in
-			if let user = user {
+			if let user = user, let userToken = user.token.accessToken {
 				//Success
+				TokenService.tokenInstance.saveToken(token: userToken)
 			} else if let errStr = errStr {
 				//Fail
 				self?.displayAlert(userMessage: errStr)
