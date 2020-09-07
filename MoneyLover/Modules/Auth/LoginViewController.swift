@@ -13,12 +13,15 @@ enum LoginType {
 	case signup
 }
 
-class LoginController: UIViewController {
+class LoginViewController: UIViewController {
 
 	@IBOutlet weak var signIn: SignIn!
 	@IBOutlet weak var signUp: SignUp!
-
+	
 	var loginType: LoginType = .signin
+	var tokenService: TokenService = UserDefaultToken.tokenInstance
+
+	var completionHandler: (() -> Void)?
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +83,7 @@ class LoginController: UIViewController {
 	}
 }
 
-extension LoginController: SignInDelegate, SignUpDelegate {
+extension LoginViewController: SignInDelegate, SignUpDelegate {
 	func signInTapBack(_ signInTapBack: SignIn) {
 		self.dismiss(animated: true, completion: nil)
 	}
@@ -89,7 +92,7 @@ extension LoginController: SignInDelegate, SignUpDelegate {
 	}
 }
 
-extension LoginController: ToSignUpDelegate, ToSignInDelegate {
+extension LoginViewController: ToSignUpDelegate, ToSignInDelegate {
 	func signInTapGo(_ signInTapGo: SignUp) {
 		signUp.isHidden = true
 		signIn.isHidden = false
@@ -101,7 +104,7 @@ extension LoginController: ToSignUpDelegate, ToSignInDelegate {
 	}
 }
 
-extension LoginController: EnableSignUpDelegate {
+extension LoginViewController: EnableSignUpDelegate {
 	func signUpTapEnable(_ signUpTapEnable: SignUp) {
 		guard let fName = signUp.firstNameTextField.text else { return }
 		guard let lName = signUp.lastNameTextField.text else { return }
@@ -109,9 +112,9 @@ extension LoginController: EnableSignUpDelegate {
 		guard let password = signUp.passwordTextField.text else { return }
 		guard let confirmPassword = signUp.confirmPasswordTextField.text else { return }
 
-		if email.checkIfEmailIsValid() == false {
-			displayAlert(userMessage: "Please enter valid email")
-		}
+//		if email.checkIfEmailIsValid() == false {
+//			displayAlert(userMessage: "Please enter valid email")
+//		}
 //		if password.checkIfPasswordIsValid() == false {
 //			displayAlert(userMessage: "Please enter valid password")
 //		}
@@ -132,7 +135,7 @@ extension LoginController: EnableSignUpDelegate {
 	}
 }
 
-extension LoginController: EnableSignInDelegate {
+extension LoginViewController: EnableSignInDelegate {
 	func signInTapEnable(_ signInTapEnable: SignIn) {
 		guard let email = signIn.emailTextField.text else { return }
 		guard let password = signIn.passwordTextField.text else { return }
@@ -147,7 +150,10 @@ extension LoginController: EnableSignInDelegate {
 		APIManager.shareInstance.callingSignInAPI(signin: signin) {[weak self] (user, errStr) in
 			if let user = user, let userToken = user.token.accessToken {
 				//Success
-				TokenService.tokenInstance.saveToken(token: userToken)
+				self?.tokenService.saveToken(userToken)
+				self?.dismiss(animated: true, completion: {
+					self?.completionHandler?()
+				})
 			} else if let errStr = errStr {
 				//Fail
 				self?.displayAlert(userMessage: errStr)
@@ -156,7 +162,7 @@ extension LoginController: EnableSignInDelegate {
 	}
 }
 
-extension LoginController: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
 	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
 		let signUpTextFieldWithEmptyText: [String] = signUpTextFields

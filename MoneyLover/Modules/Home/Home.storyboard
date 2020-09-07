@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1I8-Rm-dct">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="Ac1-aG-O6O">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="90l-Bi-IgF" customClass="HomeViewController" customModule="MoneyLover" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gmI-5C-Nwm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKI-FZ-wNm">
+                                <rect key="frame" x="0.0" y="44" width="414" height="36.666666666666657"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMf-Hc-2cu">
+                                        <rect key="frame" x="390" y="7.3333333333333357" width="16" height="22"/>
+                                        <state key="normal" image="filter"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHx-gw-RyW">
+                                        <rect key="frame" x="8" y="3.3333333333333357" width="30" height="30"/>
+                                        <state key="normal" image="profile"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstItem="qMf-Hc-2cu" firstAttribute="centerY" secondItem="SKI-FZ-wNm" secondAttribute="centerY" id="6Tt-lT-3Ue"/>
+                                    <constraint firstItem="JHx-gw-RyW" firstAttribute="centerY" secondItem="SKI-FZ-wNm" secondAttribute="centerY" id="Om1-Yv-BV6"/>
+                                    <constraint firstAttribute="trailing" secondItem="qMf-Hc-2cu" secondAttribute="trailing" constant="8" id="VE3-LW-Ub1"/>
+                                    <constraint firstItem="JHx-gw-RyW" firstAttribute="leading" secondItem="SKI-FZ-wNm" secondAttribute="leading" constant="8" id="Yna-UG-G1q"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="SKI-FZ-wNm" firstAttribute="centerX" secondItem="gmI-5C-Nwm" secondAttribute="centerX" id="2qd-pn-VmP"/>
+                            <constraint firstItem="SKI-FZ-wNm" firstAttribute="height" secondItem="gmI-5C-Nwm" secondAttribute="height" multiplier="1/20" id="5k9-fu-Y8E"/>
+                            <constraint firstItem="SKI-FZ-wNm" firstAttribute="width" secondItem="gmI-5C-Nwm" secondAttribute="width" id="ceR-Mq-WyL"/>
+                            <constraint firstItem="yF7-X5-Ipx" firstAttribute="top" secondItem="SKI-FZ-wNm" secondAttribute="top" id="nj4-Jz-yvM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yF7-X5-Ipx"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cCN-aM-h7j"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3es-cd-LlJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="260.86956521739131" y="57.589285714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sWv-55-q9K">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1I8-Rm-dct" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XZX-CZ-BbS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="90l-Bi-IgF" kind="relationship" relationship="rootViewController" id="2tF-zi-sIE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OoE-Xj-oDe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-558" y="58"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="filter" width="16" height="16"/>
+        <image name="profile" width="30" height="30"/>
+    </resources>
+</document>
