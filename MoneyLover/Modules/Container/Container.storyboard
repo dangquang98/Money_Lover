@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x84-en-DP9">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Container View Controller-->
+        <scene sceneID="RH3-sC-1Eo">
+            <objects>
+                <viewController storyboardIdentifier="ContainerViewController" id="x84-en-DP9" customClass="ContainerViewController" customModule="MoneyLover" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MzU-w2-aqc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8LH-eV-eDa" customClass="TabBar" customModule="MoneyLover" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="656" width="414" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="2hd-WE-8El"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHX-gj-amC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="656"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8LH-eV-eDa" firstAttribute="top" secondItem="QHX-gj-amC" secondAttribute="bottom" id="8JL-sL-e9X"/>
+                            <constraint firstItem="8LH-eV-eDa" firstAttribute="leading" secondItem="xKM-Wc-r2i" secondAttribute="leading" id="BRI-sq-nBa"/>
+                            <constraint firstItem="xKM-Wc-r2i" firstAttribute="trailing" secondItem="8LH-eV-eDa" secondAttribute="trailing" id="L09-Gc-hOK"/>
+                            <constraint firstItem="xKM-Wc-r2i" firstAttribute="trailing" secondItem="QHX-gj-amC" secondAttribute="trailing" id="PjL-Gi-5kb"/>
+                            <constraint firstItem="QHX-gj-amC" firstAttribute="leading" secondItem="xKM-Wc-r2i" secondAttribute="leading" id="YMh-hr-5Ci"/>
+                            <constraint firstItem="QHX-gj-amC" firstAttribute="top" secondItem="MzU-w2-aqc" secondAttribute="top" id="tWN-xO-QsU"/>
+                            <constraint firstAttribute="bottom" secondItem="8LH-eV-eDa" secondAttribute="bottom" id="zYs-QM-c04"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xKM-Wc-r2i"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="QHX-gj-amC" id="5kD-8w-jz2"/>
+                        <outlet property="tabBar" destination="8LH-eV-eDa" id="yXs-KQ-4JP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Fb-Os-Ue9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="420" y="-690"/>
+        </scene>
+    </scenes>
+</document>

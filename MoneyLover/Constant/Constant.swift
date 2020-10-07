@@ -9,11 +9,17 @@
 import Foundation
 
 struct Constant {
-	private static let base_url: String = "https://msi.center/2359/auth/v1.0"
-	static let signup_url: String = "\(base_url)/register"
-	static let signin_url: String = "\(base_url)/login"
-}
+	private static let base_url: String = "https://msi.center/2359"
+	private static let versionPath: String = "/v1.0"
+	private static let authPath: String = "\(base_url)/auth\(versionPath)"
 
-struct TokenKey {
-	static let userLogin = "USER_LOGIN_KEY"
+	static let transactionsPath: String = "\(base_url)/transactions\(versionPath)"
+
+	static let signup_url: String = "\(authPath)/register"
+	static let signin_url: String = "\(authPath)/login"
+
+	static let expensives: [TransactionModel.Category] = [.expense(.bill), .expense(.transportation) , .expense(.food), .expense(.others)]
+	static let income: [TransactionModel.Category] = [.income(.salary), .income(.gift), .income(.sell), .income(.others)]
+
+//	static let getTransaction_url: String = "\(baseTransactions_url)/+\(dateFrom_url)+\(dateTo_url)"
 }

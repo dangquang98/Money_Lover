@@ -99,17 +99,6 @@
                         <action selector="eyeTap1:" destination="-1" eventType="touchUpInside" id="SJr-J1-iuD"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWc-O3-ooq">
-                    <rect key="frame" x="30" y="30" width="22" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" image="chevron.left" catalog="system">
-                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
-                    </state>
-                    <connections>
-                        <action selector="backTap:" destination="-1" eventType="touchUpInside" id="WEz-jD-KmZ"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nIY-1A-sKG">
                     <rect key="frame" x="292" y="378" width="21" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -118,14 +107,26 @@
                         <action selector="eyeTap2:" destination="-1" eventType="touchUpInside" id="xhQ-FO-Yyh"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWc-O3-ooq">
+                    <rect key="frame" x="30" y="74" width="22" height="31"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="chevron.left" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                    </state>
+                    <connections>
+                        <action selector="backTap:" destination="-1" eventType="touchUpInside" id="WEz-jD-KmZ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="GS2-uF-Aby" firstAttribute="centerX" secondItem="CU4-dM-HZv" secondAttribute="centerX" id="0J7-Et-e2O"/>
+                <constraint firstItem="zWc-O3-ooq" firstAttribute="leading" secondItem="1ta-xP-KMw" secondAttribute="leading" constant="30" id="1OO-P0-7Qk"/>
                 <constraint firstItem="3Oa-rb-YOW" firstAttribute="leading" secondItem="pFG-Tg-LKM" secondAttribute="leading" id="4SU-Jm-cAf"/>
                 <constraint firstItem="v8X-HA-ZAX" firstAttribute="leading" secondItem="pFG-Tg-LKM" secondAttribute="leading" id="6L6-gn-BIm"/>
                 <constraint firstItem="v8X-HA-ZAX" firstAttribute="top" secondItem="3Oa-rb-YOW" secondAttribute="bottom" constant="10" id="7yG-8e-DfL"/>
                 <constraint firstItem="X7c-qU-oH5" firstAttribute="height" secondItem="pFG-Tg-LKM" secondAttribute="height" multiplier="0.971429" id="DRZ-nz-lF9"/>
+                <constraint firstItem="zWc-O3-ooq" firstAttribute="top" secondItem="1ta-xP-KMw" secondAttribute="top" constant="30" id="EMl-N1-6EZ"/>
                 <constraint firstItem="nIY-1A-sKG" firstAttribute="centerY" secondItem="6XX-9Z-5qu" secondAttribute="centerY" id="EQy-0b-Vc4"/>
                 <constraint firstItem="moS-W5-Oxz" firstAttribute="centerX" secondItem="CU4-dM-HZv" secondAttribute="centerX" id="FE8-Xn-fbZ"/>
                 <constraint firstItem="8Yv-90-5XL" firstAttribute="trailing" secondItem="X7c-qU-oH5" secondAttribute="trailing" constant="-10" id="FPo-s0-x9W"/>
@@ -153,7 +154,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="1ta-xP-KMw"/>
-            <point key="canvasLocation" x="48" y="0.0"/>
+            <point key="canvasLocation" x="63.04347826086957" y="2.34375"/>
         </view>
     </objects>
     <resources>

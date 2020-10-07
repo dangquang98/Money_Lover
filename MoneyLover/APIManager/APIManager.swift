@@ -6,7 +6,7 @@
 //  Copyright © 2020 Interns. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Alamofire
 
 class APIManager {
@@ -14,6 +14,9 @@ class APIManager {
 
 	private func post<T: Encodable>(url: String, params: T, headers: HTTPHeaders) -> DataRequest {
 		return AF.request(url, method: .post, parameters: params, encoder: JSONParameterEncoder.default, headers: headers)
+	}
+	private func get<T: Encodable>(url: String, params: T, headers: HTTPHeaders) -> DataRequest {
+		return AF.request(url, method: .get, parameters: params, encoder: URLEncodedFormParameterEncoder.default, headers: headers)
 	}
 
 	func callingSignUpAPI(signup: SignUpModel, completionHandler: @escaping ((UserModel.User?, String?) -> Void)) {
@@ -55,13 +58,39 @@ class APIManager {
 				}
 		}
 	}
+	func callingGetTransactionAPI(dateFrom: String, dateTo: String, completionHandler: @escaping (([TransactionModel], String?) -> Void)) {
+		let headers: HTTPHeaders = [
+		.contentType("applicaton/json"),
+		.authorization(bearerToken: UserDefaultToken.tokenInstance.getToken())
+		]
+		let params: [String: String] = ["dateFrom": dateFrom, "dateTo": dateTo]
+		get(url: Constant.transactionsPath, params: params, headers: headers).responseJSON {[weak self] response in
+
+			if let data = response.data, let string = String(data: data, encoding: .utf8) {
+				print("db - response \(string)")
+			}
+			if response.response?.statusCode == 200 {
+				// Success
+				self?.castResponseObject([TransactionModel].self, data: response.data, completionHandler: { model, errorStr in
+					completionHandler(model ?? [], errorStr)
+					print(model ?? [])
+				})
+			} else {
+				// Failure
+				self?.castResponseObject(MLError.self, data: response.data) { model, _ in
+					guard let mlerror = model else { return }
+					completionHandler([], mlerror.message)
+				}
+			}
+		}
+	}
+
 	private func castResponseObject<T: Decodable>(_ type: T.Type, data: Data?, completionHandler: @escaping ((T?, String?) -> Void)) {
 		guard let data = data else { return }
 		let decoder = JSONDecoder()
 		do {
 			let model = try decoder.decode(T.self, from: data)
 			completionHandler(model, nil)
-			print(model)
 		} catch {
 			completionHandler(nil, "Cannot decode \(T.self)")
 		}

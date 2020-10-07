@@ -10,7 +10,7 @@
         <!--Onboarding Controller-->
         <scene sceneID="ksq-lx-m5c">
             <objects>
-                <viewController id="7oy-gN-ryP" customClass="OnboardingController" customModule="MoneyLover" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingViewController" id="7oy-gN-ryP" customClass="OnboardingController" customModule="MoneyLover" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hHU-8a-iRn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

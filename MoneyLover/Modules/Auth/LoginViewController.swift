@@ -4,7 +4,6 @@
 //
 //  Created by Interns on 8/21/20.
 //  Copyright © 2020 Interns. All rights reserved.
-//
 
 import UIKit
 
@@ -124,9 +123,23 @@ extension LoginViewController: EnableSignUpDelegate {
 		}
 		let signup = SignUpModel(firstName: fName, lastName: lName, email: email, password: password)
 		APIManager.shareInstance.callingSignUpAPI(signup: signup) {[weak self] (user, errStr) in
-			if let user = user {
+			if user != nil {
 				//Success
 				self?.displayAlert(userMessage: "Register is successfuly")
+				let signin = SignInModel(email: email, password: password)
+				APIManager.shareInstance.callingSignInAPI(signin: signin) {[weak self] (user, errStr) in
+					if let user = user, let userToken = user.token.accessToken {
+						//Success
+						let balance = user.user.balance
+						self?.tokenService.saveToken(userToken)
+						self?.dismiss(animated: true, completion: {
+							self?.completionHandler?()
+						})
+					} else if let errStr = errStr {
+						//Fail
+						self?.displayAlert(userMessage: errStr)
+					}
+				}
 			} else if let errStr = errStr {
 				//Fail
 				self?.displayAlert(userMessage: errStr)
@@ -140,12 +153,6 @@ extension LoginViewController: EnableSignInDelegate {
 		guard let email = signIn.emailTextField.text else { return }
 		guard let password = signIn.passwordTextField.text else { return }
 
-//		if email.checkIfEmailIsValid() == false {
-//			displayAlert(userMessage: "Please enter valid email")
-//		}
-//		if password.checkIfPasswordIsValid() == false {
-//			displayAlert(userMessage: "Please enter valid password")
-//		}
 		let signin = SignInModel(email: email, password: password)
 		APIManager.shareInstance.callingSignInAPI(signin: signin) {[weak self] (user, errStr) in
 			if let user = user, let userToken = user.token.accessToken {

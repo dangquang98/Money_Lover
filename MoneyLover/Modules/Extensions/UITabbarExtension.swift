@@ -6,4 +6,13 @@
 //  Copyright © 2020 Interns. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UITabBar {
+
+	override open func sizeThatFits(_ size: CGSize) -> CGSize {
+		var sizeThatFits = super.sizeThatFits(size)
+		sizeThatFits.height = 10 // adjust your size here
+		return sizeThatFits
+	}
+}

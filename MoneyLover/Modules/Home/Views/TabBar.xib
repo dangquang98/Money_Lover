@@ -1,18 +1,114 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TabBar" customModule="MoneyLover" customModuleProvider="target">
+            <connections>
+                <outlet property="accountImg" destination="PMD-T7-A5P" id="yWx-XZ-SLx"/>
+                <outlet property="accountLabel" destination="q0z-Tt-K7y" id="jQQ-Kg-ngs"/>
+                <outlet property="addTranBtn" destination="Jz6-Gq-lH1" id="VP9-Fo-bTZ"/>
+                <outlet property="addTransImg" destination="p2f-eq-bKJ" id="6yU-nM-Of1"/>
+                <outlet property="transactionImg" destination="BMk-0D-8A8" id="6RO-H7-Nkk"/>
+                <outlet property="transactionLabel" destination="MxI-ew-iim" id="SXX-Lf-Hh3"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walletSelected" translatesAutoresizingMaskIntoConstraints="NO" id="BMk-0D-8A8">
+                    <rect key="frame" x="65.5" y="13" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="khF-Af-Gfv"/>
+                        <constraint firstAttribute="height" constant="32" id="tRI-IY-kFo"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settingUnselected" translatesAutoresizingMaskIntoConstraints="NO" id="PMD-T7-A5P">
+                    <rect key="frame" x="277.5" y="12" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="I7a-T6-DAc"/>
+                        <constraint firstAttribute="width" constant="32" id="MML-46-iue"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addtransaction" translatesAutoresizingMaskIntoConstraints="NO" id="p2f-eq-bKJ">
+                    <rect key="frame" x="157.5" y="0.0" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="ToI-MI-WQT"/>
+                        <constraint firstAttribute="width" constant="60" id="aHs-zM-tmo"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0z-Tt-K7y">
+                    <rect key="frame" x="261.5" y="51" width="64" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transactions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxI-ew-iim">
+                    <rect key="frame" x="32.5" y="52" width="98" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jz6-Gq-lH1">
+                    <rect key="frame" x="142.5" y="0.0" width="90" height="80"/>
+                    <connections>
+                        <action selector="addTransTap:" destination="-1" eventType="touchUpInside" id="zm2-Nl-dXG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdd-0f-390">
+                    <rect key="frame" x="0.0" y="0.0" width="137.5" height="80"/>
+                    <connections>
+                        <action selector="transactionTap:" destination="-1" eventType="touchUpInside" id="L3m-Bn-ukA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sas-OR-Qo8">
+                    <rect key="frame" x="252.5" y="0.0" width="122.5" height="80"/>
+                    <connections>
+                        <action selector="accountTap:" destination="-1" eventType="touchUpInside" id="IBt-xf-u88"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Sas-OR-Qo8" firstAttribute="leading" secondItem="Jz6-Gq-lH1" secondAttribute="trailing" constant="20" id="07l-ak-Dzw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="qdd-0f-390" secondAttribute="bottom" id="0cz-pG-zV8"/>
+                <constraint firstItem="BMk-0D-8A8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="1Dg-x2-3w2"/>
+                <constraint firstItem="MxI-ew-iim" firstAttribute="centerX" secondItem="BMk-0D-8A8" secondAttribute="centerX" id="1l4-jI-ZFY"/>
+                <constraint firstItem="p2f-eq-bKJ" firstAttribute="leading" secondItem="qdd-0f-390" secondAttribute="trailing" constant="20" id="BVk-Dn-LA0"/>
+                <constraint firstItem="Jz6-Gq-lH1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Fpa-gz-fH0"/>
+                <constraint firstItem="p2f-eq-bKJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Gml-wd-9to"/>
+                <constraint firstItem="p2f-eq-bKJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Gxl-UY-SYN"/>
+                <constraint firstItem="qdd-0f-390" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Jc0-e3-edY"/>
+                <constraint firstItem="qdd-0f-390" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Svu-0a-ZsS"/>
+                <constraint firstItem="q0z-Tt-K7y" firstAttribute="centerX" secondItem="PMD-T7-A5P" secondAttribute="centerX" id="VMG-eZ-hGC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Sas-OR-Qo8" secondAttribute="bottom" id="Vw1-Bq-2gc"/>
+                <constraint firstItem="p2f-eq-bKJ" firstAttribute="leading" secondItem="BMk-0D-8A8" secondAttribute="trailing" constant="60" id="WkU-1x-fHf"/>
+                <constraint firstItem="PMD-T7-A5P" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="aKe-FA-toU"/>
+                <constraint firstItem="Jz6-Gq-lH1" firstAttribute="centerX" secondItem="p2f-eq-bKJ" secondAttribute="centerX" id="f3f-WM-oN0"/>
+                <constraint firstItem="q0z-Tt-K7y" firstAttribute="top" secondItem="PMD-T7-A5P" secondAttribute="bottom" constant="7" id="fCL-Vt-l6b"/>
+                <constraint firstItem="PMD-T7-A5P" firstAttribute="leading" secondItem="p2f-eq-bKJ" secondAttribute="trailing" constant="60" id="frV-cp-6Sd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Jz6-Gq-lH1" secondAttribute="bottom" id="hca-7F-x4c"/>
+                <constraint firstItem="Sas-OR-Qo8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="lLE-s9-ZRO"/>
+                <constraint firstItem="Jz6-Gq-lH1" firstAttribute="width" secondItem="p2f-eq-bKJ" secondAttribute="width" multiplier="1.5" id="taz-zg-g0t"/>
+                <constraint firstItem="Sas-OR-Qo8" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="vAh-lK-vD4"/>
+                <constraint firstItem="MxI-ew-iim" firstAttribute="top" secondItem="BMk-0D-8A8" secondAttribute="bottom" constant="7" id="z42-SX-D6A"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.40579710144928" y="124.55357142857142"/>
         </view>
     </objects>
+    <resources>
+        <image name="addtransaction" width="60" height="60"/>
+        <image name="settingUnselected" width="32" height="32"/>
+        <image name="walletSelected" width="32" height="32"/>
+    </resources>
 </document>

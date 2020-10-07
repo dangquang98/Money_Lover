@@ -8,23 +8,35 @@
 
 import UIKit
 
-class TokenService {
-	static let tokenInstance = TokenService()
-	let userDefault = UserDefaults.standard
+protocol TokenService {
+	func saveToken(_ token: String)
+	func getToken() -> String
+	func isLogin() -> Bool
+	func removeToken()
+}
 
-	func saveToken(token: String) {
-		userDefault.set(token, forKey: TokenKey.userLogin)
+class UserDefaultToken: TokenService {
+	static let tokenInstance = UserDefaultToken()
+	let userDefault = UserDefaults.standard
+	static let key = "USER_LOGIN_KEY"
+
+	enum Key: String {
+		case token
+	}
+
+	func saveToken(_ token: String) {
+		userDefault.set(token, forKey: Key.token.rawValue)
 	}
 
 	func getToken() -> String {
-		if let token = userDefault.object(forKey: TokenKey.userLogin) as? String {
+		if let token = userDefault.object(forKey: Key.token.rawValue) as? String {
 			return token
 		} else {
 			return ""
 		}
 	}
 
-	func checkForLogin() -> Bool {
+	func isLogin() -> Bool {
 		if getToken() == "" {
 			return false
 		} else {
@@ -33,6 +45,6 @@ class TokenService {
 	}
 
 	func removeToken() {
-		userDefault.removeObject(forKey: TokenKey.userLogin)
+		userDefault.removeObject(forKey: Key.token.rawValue)
 	}
 }

@@ -19,6 +19,7 @@ protocol EnableSignUpDelegate: class {
 }
 
 class SignUp: BaseView {
+
 	@IBOutlet weak var signUpLabel: UILabel!
 	@IBOutlet weak var firstNameTextField: UITextField!
 	@IBOutlet weak var lastNameTextField: UITextField!

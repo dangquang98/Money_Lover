@@ -78,15 +78,21 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
 		pageControl.currentPage = Int(pageIndex)
 	}
 	@IBAction func signUpTap(_ sender: UIButton) {
-		let storyboard = UIStoryboard(name: "Login", bundle: nil)
-		guard let loginVC = storyboard.instantiateInitialViewController() as? LoginController else { return }
-		loginVC.loginType = .signup
-		self.present(loginVC, animated: true, completion: nil)
+		let loginController = LoginViewController.instantiate()
+		loginController.loginType = .signup
+		loginController.completionHandler = {[weak self] in
+			let homeController = ContainerViewController.instantiate()
+			homeController.changeToRoot()
+		}
+		self.present(loginController, animated: true, completion: nil)
 	}
 	@IBAction func loginTap(_ sender: UIButton) {
-		let storyboard = UIStoryboard(name: "Login", bundle: nil)
-		guard let loginVC = storyboard.instantiateInitialViewController() as? LoginController else { return }
-		loginVC.loginType = .signin
-		self.present(loginVC, animated: true, completion: nil)
+		let loginController = LoginViewController.instantiate()
+		loginController.loginType = .signin
+		loginController.completionHandler = {[weak self] in
+			let homeController = ContainerViewController.instantiate()
+			homeController.changeToRoot()
+		}
+		self.present(loginController, animated: true, completion: nil)
 	}
 }

@@ -9,5 +9,11 @@
 import UIKit
 
 class SegmentViewCell: UICollectionViewCell {
-    
+	
+	@IBOutlet weak var timeLabel: UILabel!
+
+	func configSegment(name: String, isSelected: Bool) {
+		timeLabel.textColor = isSelected ? UIColor.white : UIColor.darkGray
+		timeLabel.text = name
+	}
 }
