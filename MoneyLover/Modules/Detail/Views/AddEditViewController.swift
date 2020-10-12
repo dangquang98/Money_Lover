@@ -17,13 +17,16 @@ class AddEditViewController: UIViewController {
 	@IBOutlet weak var amountTransactionTextField: UITextField!
 	@IBOutlet weak var transactionImage: UIImageView!
 	@IBOutlet weak var selectTransactionLabel: UILabel!
-
 	@IBOutlet weak var noteTransactionTextField: UITextField!
+	@IBOutlet weak var dateTransactionTextField: UITextField!
 
+	@IBOutlet weak var saveCreateTransaction: UIButton!
 	@IBOutlet weak var cancelAddEditBtn: UIButton!
 	@IBOutlet weak var selectCategoryButton: UIButton!
-	@IBOutlet weak var dateTransactionTextField: UITextField!
+
 	weak var datePicker: UIDatePicker?
+
+	var getType: String = ""
 
 	var transaction: TransactionModel?
 
@@ -46,14 +49,14 @@ class AddEditViewController: UIViewController {
 			titleTransaction.text = "Add transaction"
 		case .editTransaction:
 			titleTransaction.text = "Edit transaction"
-			transactionImage.image = #imageLiteral(resourceName: "Bill")
+			transactionImage.image = UIImage(named: transaction?.category ?? "Others")
 		}
 
 		amountTransactionTextField.text = String(transaction?.amount ?? 0)
 		selectTransactionLabel.text = transaction?.category
 		noteTransactionTextField.text = transaction?.description
 
-		dateTransactionTextField.text = DateFormatter(format: .fullDate).stringFromDate(transaction?.date)
+		dateTransactionTextField.text = DateFormatter(format: .serverDate).stringFromDate(transaction?.date)
 		// need to be fixed
 		dateTransactionTextField.showDatePicker(target: self, date: Date(), doneHandler: #selector(doneTap), cancelHandler: #selector(cancelTap))
 	}
@@ -61,7 +64,7 @@ class AddEditViewController: UIViewController {
 	@objc func doneTap() {
 		if let datePicker = dateTransactionTextField.inputView as? UIDatePicker {
 //			dateTransactionTextField.text = datePicker.date.toString(format: "EEEE, dd MM yyyy")
-			dateTransactionTextField.text = DateFormatter(format: .fullDate).stringFromDate(datePicker.date)
+			dateTransactionTextField.text = DateFormatter(format: .serverDate).stringFromDate(datePicker.date)
 			dateTransactionTextField.resignFirstResponder()
 		}
 	}
@@ -77,15 +80,28 @@ class AddEditViewController: UIViewController {
 	@IBAction func cancelAddEditTap(_ sender: Any) {
 		dismiss(animated: true, completion: nil)
 	}
+	@IBAction func saveAddTap(_ sender: Any) {
+		switch addEditType {
+		case .addTransaction:
+			let type = getType
+			guard let category = selectTransactionLabel.text?.uppercased() else { return }
+			guard let amount =	Int(amountTransactionTextField.text!) ?? 0 else { return }
+			guard let description = noteTransactionTextField.text else { return }
+			guard let date = dateTransactionTextField.text  else { return }
+			let create = CreateModel(type: type, category: category, amount: amount, description: description, date: date)
+			APIManager.shareInstance.callingCreateTransactionAPI(create: create) {[weak self] (transactions, error) in
+				if let transactions = transactions {
+					print(transactions)
+					self?.dismiss(animated: true, completion: nil)
+				} else if let error = error {
+					print(error)
+				}
+			}
+		case .editTransaction:
+			print("edit")
+		}
+	}
 }
-//	@IBAction func datePickerChanged(_ sender: Any) {
-//		let dateFormatter = DateFormatter()
-//
-//		dateFormatter.dateStyle = DateFormatter.Style.short
-//
-//		let strDate = dateFormatter.string(from: datePicker?.date)
-//		dateTransactionTextField.text = strDate
-//	}
 
 extension AddEditViewController: UITextFieldDelegate {
 	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -103,7 +119,7 @@ extension UITextField {
 		let datePicker = UIDatePicker()
 		datePicker.date = date ?? Date()
 		datePicker.preferredDatePickerStyle = .wheels
-		datePicker.datePickerMode = .date
+		datePicker.datePickerMode = .dateAndTime
 
 		let toolBar = UIToolbar()
 
@@ -122,10 +138,18 @@ extension UITextField {
 }
 
 extension AddEditViewController: SelectCategoryViewControllerDelegate {
-	func selectCategoryViewController(_ viewController: SelectCategoryViewController, didSelectCategory category: String) {
-		selectTransactionLabel.text = category
-		if let name = transaction?.getCategory(name: category)?.image {
-			transactionImage.image = UIImage(named: name)
+	func selectCategoryViewController(_ viewController: SelectCategoryViewController, didSelectCategory category: TransactionModel.Category) {
+		//get category
+		var name = ""
+		switch category {
+		case .expense(let expensive):
+			name = expensive.rawValue.capitalized
+			getType = "EXPENSE"
+		case .income(let income):
+			name = income.rawValue.capitalized
+			getType = "INCOME"
 		}
+		selectTransactionLabel.text = name
+		transactionImage.image = UIImage(named: name)
 	}
 }

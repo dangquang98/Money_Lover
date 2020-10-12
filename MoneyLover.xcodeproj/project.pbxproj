@@ -60,6 +60,7 @@
 		68A5502224EFCC8100E7FC43 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A5502124EFCC8100E7FC43 /* SignIn.swift */; };
 		68A5502424EFCC8D00E7FC43 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A5502324EFCC8D00E7FC43 /* SignUp.swift */; };
 		68A5502724EFD62100E7FC43 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A5502624EFD62100E7FC43 /* UIView+Ext.swift */; };
+		68C00413252F216C00F04943 /* CreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C00412252F216C00F04943 /* CreateModel.swift */; };
 		A61F0DF701E24571AAFEF8B6 /* Pods_MoneyLover.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFB51FBEEC8DDDA369D77BE /* Pods_MoneyLover.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +121,7 @@
 		68A5502124EFCC8100E7FC43 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		68A5502324EFCC8D00E7FC43 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		68A5502624EFD62100E7FC43 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		68C00412252F216C00F04943 /* CreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateModel.swift; sourceTree = "<group>"; };
 		A7D934915B2134C4465D6CF7 /* Pods-MoneyLover.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyLover.debug.xcconfig"; path = "Target Support Files/Pods-MoneyLover/Pods-MoneyLover.debug.xcconfig"; sourceTree = "<group>"; };
 		EBBF51A1DAA5C2FE769A91C4 /* Pods-MoneyLover.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyLover.release.xcconfig"; path = "Target Support Files/Pods-MoneyLover/Pods-MoneyLover.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -362,6 +364,7 @@
 				6807995C24F76801003E8572 /* SignInModel.swift */,
 				6807995E24F7C141003E8572 /* MLError.swift */,
 				68538E64250642C5003C730B /* TransactionModel.swift */,
+				68C00412252F216C00F04943 /* CreateModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -438,7 +441,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = Interns;
 				TargetAttributes = {
 					68556E2224ED107D001BAE6F = {
@@ -586,6 +589,7 @@
 				6807995B24F673EB003E8572 /* StringExtension.swift in Sources */,
 				6832AC85252322D900A6B00B /* ContainerViewController.swift in Sources */,
 				6807995F24F7C141003E8572 /* MLError.swift in Sources */,
+				68C00413252F216C00F04943 /* CreateModel.swift in Sources */,
 				68538E65250642C5003C730B /* TransactionModel.swift in Sources */,
 				680B29D124FD0AFC00D7DB43 /* ProfileViewController.swift in Sources */,
 				6808BDFB251B5A0F003FF084 /* AddEditViewController.swift in Sources */,
@@ -643,6 +647,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -703,6 +708,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -738,7 +744,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 63VC54X549;
 				INFOPLIST_FILE = MoneyLover/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -759,7 +765,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 63VC54X549;
 				INFOPLIST_FILE = MoneyLover/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

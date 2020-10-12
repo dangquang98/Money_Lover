@@ -130,7 +130,6 @@ extension LoginViewController: EnableSignUpDelegate {
 				APIManager.shareInstance.callingSignInAPI(signin: signin) {[weak self] (user, errStr) in
 					if let user = user, let userToken = user.token.accessToken {
 						//Success
-						let balance = user.user.balance
 						self?.tokenService.saveToken(userToken)
 						self?.dismiss(animated: true, completion: {
 							self?.completionHandler?()

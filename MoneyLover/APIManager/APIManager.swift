@@ -58,12 +58,15 @@ class APIManager {
 				}
 		}
 	}
-	func callingGetTransactionAPI(dateFrom: String, dateTo: String, completionHandler: @escaping (([TransactionModel], String?) -> Void)) {
+	func callingGetTransactionAPI(monthYearStr: String, completionHandler: @escaping (([TransactionModel], String?) -> Void)) {
 		let headers: HTTPHeaders = [
 		.contentType("applicaton/json"),
 		.authorization(bearerToken: UserDefaultToken.tokenInstance.getToken())
 		]
-		let params: [String: String] = ["dateFrom": dateFrom, "dateTo": dateTo]
+		guard let date = DateFormatter(format: .monthYear).date(from: monthYearStr), let startDate = date.getFirstLastDay().start, let endDate = date.getFirstLastDay().end else { return }
+		let fromString = DateFormatter(format: .serverDate).string(from: startDate)
+		let toString = DateFormatter(format: .serverDate).string(from: endDate)
+		let params: [String: String] = ["dateFrom": fromString, "dateTo": toString]
 		get(url: Constant.transactionsPath, params: params, headers: headers).responseJSON {[weak self] response in
 
 			if let data = response.data, let string = String(data: data, encoding: .utf8) {
@@ -84,7 +87,26 @@ class APIManager {
 			}
 		}
 	}
-
+	func callingCreateTransactionAPI(create: CreateModel, completionHandler: @escaping ((TransactionModel?, String?) -> Void)) {
+		let headers: HTTPHeaders = [
+			.contentType("ff/json"),
+			.authorization(bearerToken: UserDefaultToken.tokenInstance.getToken())
+		]
+		post(url: Constant.transactionsPath, params: create, headers: headers).responseJSON {[weak self] response in
+			if response.response?.statusCode == 200 {
+				// Success
+				self?.castResponseObject(TransactionModel.self, data: response.data) { model, errorStr in
+					completionHandler(model, errorStr)
+				}
+			} else {
+				// Failure
+				self?.castResponseObject(MLError.self, data: response.data) { model, _ in
+					guard let mlerror = model else { return }
+					completionHandler(nil, mlerror.message)
+				}
+			}
+		}
+	}
 	private func castResponseObject<T: Decodable>(_ type: T.Type, data: Data?, completionHandler: @escaping ((T?, String?) -> Void)) {
 		guard let data = data else { return }
 		let decoder = JSONDecoder()

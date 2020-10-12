@@ -13,42 +13,16 @@ struct TransactionModel: Decodable {
 		case expense(Expense)
 		case income(Income)
 		enum Expense: String {
-			case bill = "Bills & Utilities"
-			case transportation = "Transportation"
-			case food = "Food & Drink"
-			case others = "Others"
+			case bill = "RESTAURANT"
+			case transportation = "TRANSPORTATION"
+			case food = "SHOPPING"
+			case others = "OTHERS"
 		}
 		enum Income: String {
-			case salary = "Salary"
-			case gift = "Award/Gift"
-			case sell = "Sell"
-			case others = "Others"
-		}
-		var image: String {
-			switch self {
-			case .expense(let expense):
-				switch expense {
-				case .bill:
-					return "Bill"
-				case .transportation:
-					return "Truck"
-				case .food:
-					return "Food"
-				case .others:
-					return "Money"
-				}
-			case .income(let income):
-				switch income {
-				case .salary:
-					return "Salary"
-				case .gift:
-					return "Gift"
-				case .sell:
-					return "Price"
-				case .others:
-					return "Money"
-				}
-			}
+			case salary = "SALARY"
+			case gift = "FREELANCE"
+			case sell = "INVESTMENT"
+			case others = "OTHERS"
 		}
 	}
 
@@ -60,6 +34,7 @@ struct TransactionModel: Decodable {
 	var date: Date?
 	let createdAt: String?
 	let updatedAt: String?
+	let userId: Int
 
 	var commonDateString: String {
 		return DateFormatter(format: .sortDate).stringFromDate(date) ?? ""
@@ -67,11 +42,12 @@ struct TransactionModel: Decodable {
 
 	enum CodingKeys: String, CodingKey {
 		case id
+		case userId
 		case createdAt
 		case updatedAt
 		case type
-		case category
 		case amount
+		case category
 		case description
 		case date
 	}
@@ -86,27 +62,22 @@ struct TransactionModel: Decodable {
 		self.createdAt = try values.decode(String.self, forKey: .createdAt)
 		self.updatedAt = try values.decode(String.self, forKey: .updatedAt)
 		self.type = try values.decode(String.self, forKey: .type)
-		self.category = try values.decode(String.self, forKey: .category)
+		self.category = try values.decode(String.self, forKey: .category).capitalized
 		self.amount = try values.decode(Double.self, forKey: .amount)
 		self.description = try values.decode(String.self, forKey: .description)
+		self.userId = try values.decode(Int.self, forKey: .userId)
 	}
 
-	init(id: Int,
-		type: String?,
-		amount: Double,
-		category: String?,
-		description: String?,
-		date: Date?,
-		createdAt: String?,
-		updatedAt: String?) {
+	init(id: Int, userId: Int, type: String?, amount: Double, category: String?, description: String?, date: Date?, createdAt: String?, updatedAt: String?) {
 		self.id = id
 		self.createdAt = createdAt
 		self.updatedAt = updatedAt
 		self.type = type
-		self.category = category
+		self.category = category?.capitalized
 		self.amount = amount
 		self.description = description
 		self.date = date
+		self.userId = userId
 	}
 
 	func getCategory(name: String) -> Category? {

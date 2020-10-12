@@ -11,6 +11,31 @@
 #import "FLEXRuntimeUtility.h"
 #import "NSObject+FLEX_Reflection.h"
 
+#pragma mark - UIApplication
+
+@implementation FLEXShortcutsFactory (UIApplication)
+
++ (void)load { FLEX_EXIT_IF_TESTING()
+    // sharedApplication class property possibly not added
+    // as a literal class property until iOS 10
+    FLEXRuntimeUtilityTryAddObjectProperty(
+        2, sharedApplication, UIApplication.flex_metaclass, UIApplication, PropertyKey(ReadOnly)
+    );
+    
+    self.append.classProperties(@[@"sharedApplication"]).forClass(UIApplication.flex_metaclass);
+    self.append.properties(@[
+        @"delegate", @"keyWindow", @"windows"
+    ]).forClass(UIApplication.class);
+
+    if (@available(iOS 13, *)) {
+        self.append.properties(@[
+            @"connectedScenes", @"openSessions", @"supportsMultipleScenes"
+        ]).forClass(UIApplication.class);
+    }
+}
+
+@end
+
 #pragma mark - Views
 
 @implementation FLEXShortcutsFactory (Views)
@@ -135,7 +160,7 @@
     ]).forClass(UIImage.class);
 
     if (@available(iOS 13, *)) {
-        self.append.properties(@[@"symbolImage"]);
+        self.append.properties(@[@"symbolImage"]).forClass(UIImage.class);
     }
 }
 
@@ -237,24 +262,6 @@
     self.append.classProperties(@[
         @"defaultTimeZone", @"systemTimeZone", @"localTimeZone"
     ]).forClass(NSTimeZone.class);
-    
-    
-//    self.append.<#type#>(@[@"<#value#>"]).forClass(NSURLSession.class);
-//    
-//    
-//    self.append.<#type#>(@[@"<#value#>"]).forClass(NSURLSession.class);
-//    
-//    
-//    self.append.<#type#>(@[@"<#value#>"]).forClass(NSURLSession.class);
-//    
-//    
-//    self.append.<#type#>(@[@"<#value#>"]).forClass(NSURLSession.class);
-//    
-//    
-//    self.append.<#type#>(@[@"<#value#>"]).forClass(NSURLSession.class);
-//    
-//    
-//    self.append.<#type#>(@[@"<#value#>"]).forClass(NSURLSession.class);
 }
 
 @end

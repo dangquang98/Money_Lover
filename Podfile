@@ -8,5 +8,5 @@ target 'MoneyLover' do
   # Pods for MoneyLover
   pod 'Alamofire'
   pod 'SwiftLint'
-	pod 'FLEX'
+	pod 'FLEX', :git => 'https://github.com/FLEXTool/FLEX', :configurations => ['Debug']
 end

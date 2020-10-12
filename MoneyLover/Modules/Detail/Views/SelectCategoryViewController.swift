@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SelectCategoryViewControllerDelegate: class {
-	func selectCategoryViewController(_ viewController: SelectCategoryViewController, didSelectCategory category: String)
+	func selectCategoryViewController(_ viewController: SelectCategoryViewController, didSelectCategory category: TransactionModel.Category)
 }
 
 class SelectCategoryViewController: UIViewController {
@@ -56,11 +56,11 @@ extension SelectCategoryViewController: UITableViewDataSource, UITableViewDelega
 		var name = ""
 		switch category {
 		case .expense(let expensive):
-			name = expensive.rawValue
+			name = expensive.rawValue.capitalized
 		case .income(let income):
-			name = income.rawValue
+			name = income.rawValue.capitalized
 		}
-		cell.configCategory(image: category.image, name: name)
+		cell.configCategory(image: name, name: name)
 		return cell
 	}
 
@@ -77,15 +77,8 @@ extension SelectCategoryViewController: UITableViewDataSource, UITableViewDelega
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
 		let category = currentIndex == 0 ? Constant.expensives[indexPath.row] : Constant.income[indexPath.row]
-		// get category
-		var name = ""
-		switch category {
-		case .expense(let expensive):
-			name = expensive.rawValue
-		case .income(let income):
-			name = income.rawValue
-		}
-		delegate?.selectCategoryViewController(self, didSelectCategory: name)
+		
+		delegate?.selectCategoryViewController(self, didSelectCategory: category)
 		navigationController?.popViewController(animated: true)
 	}
 }

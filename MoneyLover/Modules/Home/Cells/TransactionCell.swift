@@ -14,7 +14,7 @@ class TransactionCell: UITableViewCell {
 	@IBOutlet weak var amountLabel: UILabel!
 
 	func configTransaction(transaction: TransactionModel) {
-		categoryImage.image = #imageLiteral(resourceName: "Bill")
+		categoryImage.image = UIImage(named: transaction.category ?? "")
 		categoryLabel.text = transaction.category
 		amountLabel.text = String(transaction.amount)
 		amountLabel.textColor = transaction.type == "INCOME" ? .blue : .red

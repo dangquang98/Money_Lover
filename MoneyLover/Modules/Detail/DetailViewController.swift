@@ -34,7 +34,7 @@ class DetailViewController: UIViewController {
     }
 
 	func configDetail() {
-		imageDetailLabel.image = #imageLiteral(resourceName: "Bill")
+		imageDetailLabel.image = UIImage(named: transaction?.category ?? "Others")
 		nameDetailLabel.text = transaction?.category
 		amountDetailLabel.text = String(transaction?.amount ?? 0)
 //		dayDetailLabel.text = transaction?.date?.toString(format: "EEEE, dd MM yyyy")

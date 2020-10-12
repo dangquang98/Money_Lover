@@ -181,6 +181,9 @@
                                         <state key="normal" title="Save">
                                             <color key="titleColor" red="0.33725490200000002" green="0.7843137255" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="saveAddTap:" destination="kV7-1g-aKv" eventType="touchUpInside" id="Wm7-4t-w4K"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -212,6 +215,7 @@
                         <outlet property="cancelAddEditBtn" destination="g4V-IO-zPy" id="9N5-Ko-iOa"/>
                         <outlet property="dateTransactionTextField" destination="PuB-Qe-o6C" id="ue7-at-DjN"/>
                         <outlet property="noteTransactionTextField" destination="5fQ-y4-HHT" id="cnI-BZ-nFm"/>
+                        <outlet property="saveCreateTransaction" destination="471-Pl-ibZ" id="eeI-Xr-SaG"/>
                         <outlet property="selectCategoryButton" destination="VTA-CN-UTB" id="ahz-sR-SVF"/>
                         <outlet property="selectTransactionLabel" destination="lli-Za-7KT" id="jzK-G7-oSk"/>
                         <outlet property="titleTransaction" destination="lMe-F4-ViD" id="6XO-3x-8TL"/>

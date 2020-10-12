@@ -23,7 +23,6 @@ extension UIViewController {
 //		return [transaction1, transaction2, transaction3, transaction4, transaction5, transaction11, transaction22, transaction33, transaction44]
 //
 //	}
-
 	func createTransactionDict(from transactions: [TransactionModel], by format: FormatString.Format = .monthYear) -> [String: [TransactionModel]] {
 		let sortedTransactions = transactions.sorted { (first, second) -> Bool in
 			if let first = first.date, let second = second.date {
@@ -58,25 +57,29 @@ class HomeViewController: UIViewController {
 	let cellHeaderHeight: CGFloat = 50
 	let sessionSpacingHeight: CGFloat = 20
 
-	var currentMonth: String?
+	var tableCellTypes: [TableCellType] = []
+
+	var selectedMonth: String? {
+		didSet {
+			getTransactions(dateString: selectedMonth ?? DateFormatter(format: .monthYear).string(from: Date()))
+		}
+	}
+
+	var months: [String] = {
+		guard let currentYear = Int(DateFormatter(format: .year).string(from: Date())) else { return [] }
+		return Array(1...12).map { return "\($0 < 10 ? "0\($0)" : "\($0)")/\(currentYear)" }
+	}()
 
 	var transactionDict: [String: [TransactionModel]] = [:] {
 		didSet {
 			guard transactionDict.count != 0 else { return }
-			if let firstKey = transactionDict.keys.first {
-				currentMonth = firstKey
-				transactions = transactionDict[firstKey] ?? []
-				tableView.reloadData()
+			if let selectedMonth = selectedMonth {
+				reloadTableViewData()
 				collectionViewA.reloadData()
 			}
 		}
 	}
 
-	var transactions: [TransactionModel] = [] {
-		didSet {
-			tableView.reloadData()
-		}
-	}
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		navigationController?.isNavigationBarHidden = true
@@ -90,11 +93,14 @@ class HomeViewController: UIViewController {
 		setupCollectionView()
 
 //		loadDataIfNeed(transactions: createFakeTransactions())
-		APIManager.shareInstance.callingGetTransactionAPI(dateFrom: "2020-07-01T00:00:00.00Z", dateTo: "2020-11-01T00:00:00.00Z") { [weak self] transactions, error in
-			guard let self = self else { return }
-			self.transactionDict = self.createTransactionDict(from: transactions)
-		}
+		getTransactions(dateString: DateFormatter(format: .monthYear).string(from: Date()))
     }
+	func reloadTableViewData() {
+		let defaultMonth = DateFormatter(format: .monthYear).string(from: Date())
+		let transactions = transactionDict[selectedMonth ?? defaultMonth] ?? []
+		tableCellTypes = generateTableViewData(transactions)
+		tableView.reloadData()
+	}
 
 	func generateTableViewData(_ transactions: [TransactionModel]) -> [TableCellType] {
 		var cells: [TableCellType] = []
@@ -114,23 +120,14 @@ class HomeViewController: UIViewController {
 		}
 		let sum = TableCellType.total(inflow, outflow)
 		cells.append(sum)
-
 		//TODOs: Filter group by date
-		if let selectedDate = currentMonth {
+		if let selectedDate = selectedMonth {
 			let group = groupBillOfMonthByDate(fullBillOfMonth: transactionDict[selectedDate])
 			cells.append(contentsOf: group)
 		} else {
 			cells.append(.group([]))
 		}
 		return cells
-	}
-
-	fileprivate func setDefaultData() {
-		self.currentMonth = transactionDict.first?.key
-		if let key = transactionDict.first?.key {
-			currentMonth = key
-			transactions = transactionDict[key] ?? []
-		}
 	}
 
 	func groupBillOfMonthByDate(fullBillOfMonth: [TransactionModel]?) -> [TableCellType] {
@@ -207,7 +204,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 }
 extension HomeViewController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return transactionDict.count
+		return months.count
 	}
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
 		return 0.0
@@ -220,12 +217,9 @@ extension HomeViewController: UICollectionViewDataSource {
 
 extension HomeViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let sortedTransactionKeys = transactionDict.keys.sorted(by: <)
-
 		guard let cellA = collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewAIdentifier, for: indexPath) as? SegmentViewCell else { return UICollectionViewCell()}
-		let index = indexPath.row
-		let name = Array(sortedTransactionKeys)[index]
-		cellA.configSegment(name: name, isSelected: currentMonth == name)
+		let name = months[indexPath.row]
+		cellA.configSegment(name: name, isSelected: selectedMonth == name)
 		return cellA
 	}
 
@@ -233,25 +227,25 @@ extension HomeViewController: UICollectionViewDelegate {
 		if collectionView === collectionViewA {
 			let sortedTransactionKeys = transactionDict.keys.sorted(by: <)
 			let index = indexPath.row
-			let name = Array(sortedTransactionKeys)[index]
+			let name = months[index]
 
-			self.currentMonth = name
-			/// change data
+			self.selectedMonth = name
+			// change data
+
 			collectionView.reloadData()
 			collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-
 			collectionView.reloadItems(at: [])
 		}
 	}
 }
 
-extension HomeViewController: UITableViewDelegate {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return generateTableViewData(transactions).count
+		return tableCellTypes.count
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		let cellTypes = generateTableViewData(transactions)
+		let cellTypes = tableCellTypes
 		switch section {
 		case 0:
 			return 1
@@ -266,13 +260,15 @@ extension HomeViewController: UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		if section != 0 {
-			let cellType = generateTableViewData(transactions)[section]
+			let cellType = tableCellTypes[section]
 			if case let .group(transactions) = cellType, let nameDate = transactions.first?.date {
 				let total = transactions.reduce(0) { (result, transaction) -> Double in
 					if transaction.type == "INCOME" {
 						return result + transaction.amount
-					} else {
+					} else if transaction.type == "EXPENSE" {
 						return result + transaction.amount * -1
+					} else {
+						return result
 					}
 				}
 				let headerView = TransactionHeaderView()
@@ -300,7 +296,7 @@ extension HomeViewController: UITableViewDelegate {
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cellType = generateTableViewData(transactions)[indexPath.section]
+		let cellType = tableCellTypes[indexPath.section]
 		switch indexPath.section {
 		case 0:
 			if case let .total(inflow, outflow) = cellType {
@@ -322,8 +318,8 @@ extension HomeViewController: UITableViewDelegate {
 		}
 	}
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: false)
-		let cellType = generateTableViewData(transactions)[indexPath.section]
+		tableView.deselectRow(at: indexPath, animated: true)
+		let cellType = tableCellTypes[indexPath.section]
 		if indexPath.section != 0 {
 			let detailController = DetailViewController.instantiate()
 			if case let .group(transactionList) = cellType {
@@ -334,7 +330,14 @@ extension HomeViewController: UITableViewDelegate {
 		}
 	}
 }
-extension HomeViewController: UITableViewDataSource {
+
+extension HomeViewController {
+	//dateString = "07/2020"
+	func getTransactions(dateString: String) {
+		APIManager.shareInstance.callingGetTransactionAPI(monthYearStr: dateString) { [weak self] transactions, error in
+			guard let self = self else { return }
+			self.transactionDict = self.createTransactionDict(from: transactions)
+
+		}
+	}
 }
-
-
