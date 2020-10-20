@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pJf-XY-yiY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pJf-XY-yiY">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,9 +11,9 @@
         <!--LoginController-->
         <scene sceneID="Kca-Fz-HET">
             <objects>
-                <viewController storyboardIdentifier="LoginController" title="LoginController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pJf-XY-yiY" customClass="LoginViewController" customModule="MoneyLover" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="c" title="LoginController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pJf-XY-yiY" customClass="LoginViewController" customModule="MoneyLover" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="rAQ-hJ-cTB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <userGuides>
                             <userLayoutGuide location="16" affinity="minX"/>
@@ -19,14 +21,15 @@
                         </userGuides>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gg7-Oj-WvG" customClass="SignIn" customModule="MoneyLover" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nkh-JS-hrO" customClass="SignUp" customModule="MoneyLover" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="YUb-K7-eII"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YUb-K7-eII" firstAttribute="trailing" secondItem="gg7-Oj-WvG" secondAttribute="trailing" id="7bb-Kd-fHy"/>
@@ -38,7 +41,6 @@
                             <constraint firstItem="YUb-K7-eII" firstAttribute="bottom" secondItem="Nkh-JS-hrO" secondAttribute="bottom" id="qRs-nT-BJK"/>
                             <constraint firstItem="Nkh-JS-hrO" firstAttribute="top" secondItem="YUb-K7-eII" secondAttribute="top" id="rtb-WJ-rzf"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="YUb-K7-eII"/>
                     </view>
                     <connections>
                         <outlet property="signIn" destination="gg7-Oj-WvG" id="04V-cC-9JK"/>

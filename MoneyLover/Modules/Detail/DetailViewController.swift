@@ -50,5 +50,13 @@ class DetailViewController: UIViewController {
 		self.present(navigationController, animated: true, completion: nil)
 	}
 	@IBAction func deleteTransaction(_ sender: UIButton) {
+		guard let id = transaction?.id else { return }
+		APIManager.shareInstance.callingDeleteTransactionAPI(id: id) { (success, error) in
+			if let success = success, success == true {
+				self.navigationController?.popViewController(animated: true)
+			} else if let error = error {
+				self.showDefaultAlert(error)
+			}
+		}
 	}
 }

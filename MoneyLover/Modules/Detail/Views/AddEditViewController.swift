@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddEditViewControllerDelegate: class {
+	func addEditViewController(_ viewController: AddEditViewController)
+}
+
 enum AddEditType {
 	case addTransaction
 	case editTransaction
@@ -23,6 +27,8 @@ class AddEditViewController: UIViewController {
 	@IBOutlet weak var saveCreateTransaction: UIButton!
 	@IBOutlet weak var cancelAddEditBtn: UIButton!
 	@IBOutlet weak var selectCategoryButton: UIButton!
+
+	weak var delegate: AddEditViewControllerDelegate?
 
 	weak var datePicker: UIDatePicker?
 
@@ -83,23 +89,38 @@ class AddEditViewController: UIViewController {
 	@IBAction func saveAddTap(_ sender: Any) {
 		switch addEditType {
 		case .addTransaction:
+			guard let category = selectTransactionLabel.text?.uppercased(),
+			let amount = Double(amountTransactionTextField.text ?? "0.0"),
+			let description = noteTransactionTextField.text,
+			let date = dateTransactionTextField.text  else { return }
 			let type = getType
-			guard let category = selectTransactionLabel.text?.uppercased() else { return }
-			guard let amount =	Int(amountTransactionTextField.text!) ?? 0 else { return }
-			guard let description = noteTransactionTextField.text else { return }
-			guard let date = dateTransactionTextField.text  else { return }
 			let create = CreateModel(type: type, category: category, amount: amount, description: description, date: date)
 			APIManager.shareInstance.callingCreateTransactionAPI(create: create) {[weak self] (transactions, error) in
 				if let transactions = transactions {
-					print(transactions)
 					self?.dismiss(animated: true, completion: nil)
 				} else if let error = error {
-					print(error)
+					self?.showDefaultAlert(error)
 				}
 			}
+
 		case .editTransaction:
-			print("edit")
+			guard let id = transaction?.id,
+			let type = transaction?.type,
+			let category = selectTransactionLabel.text?.uppercased(),
+			let amount = Double(amountTransactionTextField.text ?? "0.0"),
+			let description = noteTransactionTextField.text,
+			let date = dateTransactionTextField.text else { return }
+
+			let update = CreateModel(type: type, category: category, amount: amount, description: description, date: date)
+			APIManager.shareInstance.callingUpdateTransactionAPI(id: id, update: update) {[weak self] (success, error) in
+				if let success = success, success == true {
+					self?.dismiss(animated: true, completion: nil)
+				} else if let error = error {
+					self?.showDefaultAlert(error)
+				}
+			}
 		}
+		delegate?.addEditViewController(self)
 	}
 }
 

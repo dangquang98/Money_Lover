@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x84-en-DP9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x84-en-DP9">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,17 +19,18 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8LH-eV-eDa" customClass="TabBar" customModule="MoneyLover" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="656" width="414" height="80"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="2hd-WE-8El"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHX-gj-amC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="656"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="xKM-Wc-r2i"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8LH-eV-eDa" firstAttribute="top" secondItem="QHX-gj-amC" secondAttribute="bottom" id="8JL-sL-e9X"/>
                             <constraint firstItem="8LH-eV-eDa" firstAttribute="leading" secondItem="xKM-Wc-r2i" secondAttribute="leading" id="BRI-sq-nBa"/>
@@ -35,9 +38,8 @@
                             <constraint firstItem="xKM-Wc-r2i" firstAttribute="trailing" secondItem="QHX-gj-amC" secondAttribute="trailing" id="PjL-Gi-5kb"/>
                             <constraint firstItem="QHX-gj-amC" firstAttribute="leading" secondItem="xKM-Wc-r2i" secondAttribute="leading" id="YMh-hr-5Ci"/>
                             <constraint firstItem="QHX-gj-amC" firstAttribute="top" secondItem="MzU-w2-aqc" secondAttribute="top" id="tWN-xO-QsU"/>
-                            <constraint firstAttribute="bottom" secondItem="8LH-eV-eDa" secondAttribute="bottom" id="zYs-QM-c04"/>
+                            <constraint firstItem="xKM-Wc-r2i" firstAttribute="bottom" secondItem="8LH-eV-eDa" secondAttribute="bottom" id="zYs-QM-c04"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="xKM-Wc-r2i"/>
                     </view>
                     <connections>
                         <outlet property="contentView" destination="QHX-gj-amC" id="5kD-8w-jz2"/>
@@ -49,4 +51,9 @@
             <point key="canvasLocation" x="420" y="-690"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

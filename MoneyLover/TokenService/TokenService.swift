@@ -47,4 +47,11 @@ class UserDefaultToken: TokenService {
 	func removeToken() {
 		userDefault.removeObject(forKey: Key.token.rawValue)
 	}
+
+	func forceLoggout() {
+		UserDefaultToken.tokenInstance.removeToken()
+		if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+			appDelegate.changeWindow(to: .onboarding)
+		}
+	}
 }

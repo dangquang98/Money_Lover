@@ -193,12 +193,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GAQ-01-wq9" customClass="EmptyTransaction" customModule="MoneyLover" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="156" width="414" height="706"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9cp-b9-tHU"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="p38-ms-6J5" firstAttribute="leading" secondItem="9cp-b9-tHU" secondAttribute="leading" id="3Gj-3W-fa6"/>
                             <constraint firstItem="Kf2-SY-pIk" firstAttribute="top" secondItem="lu8-kb-bta" secondAttribute="bottom" constant="8" id="3Hx-iY-5oj"/>
+                            <constraint firstItem="9cp-b9-tHU" firstAttribute="trailing" secondItem="GAQ-01-wq9" secondAttribute="trailing" id="CR9-Yq-2EG"/>
                             <constraint firstItem="Kf2-SY-pIk" firstAttribute="leading" secondItem="9cp-b9-tHU" secondAttribute="leading" id="DAd-Xe-JGm"/>
                             <constraint firstItem="p38-ms-6J5" firstAttribute="top" secondItem="Kf2-SY-pIk" secondAttribute="bottom" id="IIL-23-pae"/>
                             <constraint firstItem="9cp-b9-tHU" firstAttribute="bottom" secondItem="p38-ms-6J5" secondAttribute="bottom" id="Lpg-Qn-qWN"/>
@@ -207,11 +212,15 @@
                             <constraint firstItem="9cp-b9-tHU" firstAttribute="trailing" secondItem="lu8-kb-bta" secondAttribute="trailing" id="VOI-HJ-OwQ"/>
                             <constraint firstItem="9cp-b9-tHU" firstAttribute="trailing" secondItem="Kf2-SY-pIk" secondAttribute="trailing" id="XJU-iG-gGi"/>
                             <constraint firstItem="lu8-kb-bta" firstAttribute="leading" secondItem="9cp-b9-tHU" secondAttribute="leading" id="ab0-fJ-Vof"/>
+                            <constraint firstItem="9cp-b9-tHU" firstAttribute="bottom" secondItem="GAQ-01-wq9" secondAttribute="bottom" id="amm-rw-AgN"/>
+                            <constraint firstItem="GAQ-01-wq9" firstAttribute="leading" secondItem="9cp-b9-tHU" secondAttribute="leading" id="mb9-RV-PhL"/>
+                            <constraint firstItem="GAQ-01-wq9" firstAttribute="top" secondItem="Kf2-SY-pIk" secondAttribute="bottom" id="pZe-nO-k6I"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QDC-rk-hv2"/>
                     <connections>
                         <outlet property="collectionViewA" destination="Kf2-SY-pIk" id="v1T-EY-ZQX"/>
+                        <outlet property="emptyTransaction" destination="GAQ-01-wq9" id="xwe-AN-2GJ"/>
                         <outlet property="nameLbl" destination="oPm-B0-gR7" id="Moz-GT-nZr"/>
                         <outlet property="tableView" destination="p38-ms-6J5" id="MTk-uC-Q5U"/>
                         <outlet property="threedotsButton" destination="ljP-tw-QRp" id="GyC-pr-dJn"/>
@@ -220,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iv9-3M-yzi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1314" y="-690"/>
+            <point key="canvasLocation" x="1313.0434782608697" y="-690.40178571428567"/>
         </scene>
     </scenes>
     <resources>

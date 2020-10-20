@@ -11,7 +11,7 @@ import Foundation
 struct CreateModel: Encodable {
 	let type: String
 	let category: String
-	let amount: Int
+	let amount: Double
 	let description: String
 	let date: String
 }

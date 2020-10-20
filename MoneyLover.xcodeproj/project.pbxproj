@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6802DF2724FE4864001686E5 /* TabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6802DF2624FE4864001686E5 /* TabBar.xib */; };
 		6802DF2924FE49D1001686E5 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6802DF2824FE49D1001686E5 /* TabBar.swift */; };
+		6804301D253D463400FC1845 /* EmptyTransaction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6804301C253D463400FC1845 /* EmptyTransaction.xib */; };
 		680460E524F8AB7100E060B5 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680460E424F8AB7100E060B5 /* TokenService.swift */; };
 		680460E724F8C2D400E060B5 /* Container.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680460E624F8C2D400E060B5 /* Container.storyboard */; };
 		680460E924F8C2F000E060B5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680460E824F8C2F000E060B5 /* HomeViewController.swift */; };
@@ -50,6 +51,8 @@
 		68380F1F2508D1CB006F6943 /* TransactionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68380F1E2508D1CB006F6943 /* TransactionHeaderView.xib */; };
 		68380F212508D1F9006F6943 /* TransactionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68380F202508D1F9006F6943 /* TransactionHeaderView.swift */; };
 		68380F232508DFC8006F6943 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68380F222508DFC8006F6943 /* Date+Ext.swift */; };
+		683866B1253956AC00D1BDD7 /* pigAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 683866B0253956AC00D1BDD7 /* pigAppIcon.png */; };
+		683866B825397E8100D1BDD7 /* EmptyTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683866B725397E8100D1BDD7 /* EmptyTransaction.swift */; };
 		68538E65250642C5003C730B /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68538E64250642C5003C730B /* TransactionModel.swift */; };
 		68556E2724ED107D001BAE6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68556E2624ED107D001BAE6F /* AppDelegate.swift */; };
 		68556E2E24ED107D001BAE6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68556E2C24ED107D001BAE6F /* Main.storyboard */; };
@@ -61,6 +64,8 @@
 		68A5502424EFCC8D00E7FC43 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A5502324EFCC8D00E7FC43 /* SignUp.swift */; };
 		68A5502724EFD62100E7FC43 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A5502624EFD62100E7FC43 /* UIView+Ext.swift */; };
 		68C00413252F216C00F04943 /* CreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C00412252F216C00F04943 /* CreateModel.swift */; };
+		68D604E72539AA6D00EBC839 /* SearchHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68D604E62539AA6D00EBC839 /* SearchHeaderCell.xib */; };
+		68D604EA2539AA8600EBC839 /* SearchHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D604E92539AA8600EBC839 /* SearchHeaderCell.swift */; };
 		A61F0DF701E24571AAFEF8B6 /* Pods_MoneyLover.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFB51FBEEC8DDDA369D77BE /* Pods_MoneyLover.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +73,7 @@
 		3AFB51FBEEC8DDDA369D77BE /* Pods_MoneyLover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyLover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6802DF2624FE4864001686E5 /* TabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBar.xib; sourceTree = "<group>"; };
 		6802DF2824FE49D1001686E5 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		6804301C253D463400FC1845 /* EmptyTransaction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyTransaction.xib; sourceTree = "<group>"; };
 		680460E424F8AB7100E060B5 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		680460E624F8C2D400E060B5 /* Container.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Container.storyboard; sourceTree = "<group>"; };
 		680460E824F8C2F000E060B5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +115,8 @@
 		68380F1E2508D1CB006F6943 /* TransactionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionHeaderView.xib; sourceTree = "<group>"; };
 		68380F202508D1F9006F6943 /* TransactionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHeaderView.swift; sourceTree = "<group>"; };
 		68380F222508DFC8006F6943 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		683866B0253956AC00D1BDD7 /* pigAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pigAppIcon.png; path = "../../../Downloads/Money Lover Prototype (5)/pigAppIcon.png"; sourceTree = "<group>"; };
+		683866B725397E8100D1BDD7 /* EmptyTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTransaction.swift; sourceTree = "<group>"; };
 		68538E64250642C5003C730B /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		68556E2324ED107D001BAE6F /* MoneyLover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyLover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68556E2624ED107D001BAE6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +130,8 @@
 		68A5502324EFCC8D00E7FC43 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		68A5502624EFD62100E7FC43 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		68C00412252F216C00F04943 /* CreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateModel.swift; sourceTree = "<group>"; };
+		68D604E62539AA6D00EBC839 /* SearchHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHeaderCell.xib; sourceTree = "<group>"; };
+		68D604E92539AA8600EBC839 /* SearchHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderCell.swift; sourceTree = "<group>"; };
 		A7D934915B2134C4465D6CF7 /* Pods-MoneyLover.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyLover.debug.xcconfig"; path = "Target Support Files/Pods-MoneyLover/Pods-MoneyLover.debug.xcconfig"; sourceTree = "<group>"; };
 		EBBF51A1DAA5C2FE769A91C4 /* Pods-MoneyLover.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyLover.release.xcconfig"; path = "Target Support Files/Pods-MoneyLover/Pods-MoneyLover.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,6 +197,7 @@
 		6807432D2525AF00003854CF /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				68D604E52539AA4B00EBC839 /* Views */,
 				6807432E2525AF84003854CF /* SearchViewController.swift */,
 				680743322525B7CD003854CF /* Search.storyboard */,
 			);
@@ -303,6 +314,15 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		683866B325395A4B00D1BDD7 /* EmptyTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				683866B725397E8100D1BDD7 /* EmptyTransaction.swift */,
+				6804301C253D463400FC1845 /* EmptyTransaction.xib */,
+			);
+			path = EmptyTransaction;
+			sourceTree = "<group>";
+		};
 		68556E1A24ED107D001BAE6F = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +354,7 @@
 				68556E2C24ED107D001BAE6F /* Main.storyboard */,
 				68556E3124ED107F001BAE6F /* LaunchScreen.storyboard */,
 				68556E2F24ED107F001BAE6F /* Assets.xcassets */,
+				683866B0253956AC00D1BDD7 /* pigAppIcon.png */,
 				68556E3424ED107F001BAE6F /* Info.plist */,
 			);
 			path = MoneyLover;
@@ -342,6 +363,7 @@
 		68556E3A24ED10AA001BAE6F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				683866B325395A4B00D1BDD7 /* EmptyTransaction */,
 				6807432D2525AF00003854CF /* Search */,
 				680A7C0325246FC9003776A5 /* Account */,
 				680A7C0225246FBF003776A5 /* Container */,
@@ -409,6 +431,15 @@
 				68380F222508DFC8006F6943 /* Date+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		68D604E52539AA4B00EBC839 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				68D604E62539AA6D00EBC839 /* SearchHeaderCell.xib */,
+				68D604E92539AA8600EBC839 /* SearchHeaderCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -483,11 +514,14 @@
 				680A7C052524700B003776A5 /* Home.storyboard in Resources */,
 				6808BDF9251B5823003FF084 /* AddEdit.storyboard in Resources */,
 				68A5501E24EFC77E00E7FC43 /* SignIn.xib in Resources */,
+				683866B1253956AC00D1BDD7 /* pigAppIcon.png in Resources */,
+				6804301D253D463400FC1845 /* EmptyTransaction.xib in Resources */,
 				68556E3024ED107F001BAE6F /* Assets.xcassets in Resources */,
 				68380F1F2508D1CB006F6943 /* TransactionHeaderView.xib in Resources */,
 				6808807C251C9F9B00A180E1 /* SelectCategory.storyboard in Resources */,
 				68556E2E24ED107D001BAE6F /* Main.storyboard in Resources */,
 				681463A024ED1FC300D86C79 /* Onboarding.storyboard in Resources */,
+				68D604E72539AA6D00EBC839 /* SearchHeaderCell.xib in Resources */,
 				680743332525B7CD003854CF /* Search.storyboard in Resources */,
 				6808185B250B2DA800B3367F /* Detail.storyboard in Resources */,
 			);
@@ -561,6 +595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68380F212508D1F9006F6943 /* TransactionHeaderView.swift in Sources */,
+				683866B825397E8100D1BDD7 /* EmptyTransaction.swift in Sources */,
 				68A5502724EFD62100E7FC43 /* UIView+Ext.swift in Sources */,
 				68A5502424EFCC8D00E7FC43 /* SignUp.swift in Sources */,
 				681463A824ED2B1200D86C79 /* Slide.swift in Sources */,
@@ -582,6 +617,7 @@
 				680B29C824FCEB3100D7DB43 /* UITabbarExtension.swift in Sources */,
 				681476AA2505E0A7008B46F7 /* TotalFlowViewCell.swift in Sources */,
 				6808807A251C9F8B00A180E1 /* SelectCategoryViewController.swift in Sources */,
+				68D604EA2539AA8600EBC839 /* SearchHeaderCell.swift in Sources */,
 				681849042500EC4C005E84E9 /* UIViewController+Ext.swift in Sources */,
 				6808184D24F4B50700B4853E /* Constant.swift in Sources */,
 				68380F232508DFC8006F6943 /* Date+Ext.swift in Sources */,

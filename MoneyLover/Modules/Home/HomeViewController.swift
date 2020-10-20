@@ -9,20 +9,20 @@
 import UIKit
 
 extension UIViewController {
-//	func createFakeTransactions() -> [TransactionModel] {
-//		let transaction1 = TransactionModel(id: 1, type: "INCOME", amount: 100000, category: "SALARY", description: "Salary", date: Date(), createdAt: "", updatedAt: "")
-//		let transaction2 = TransactionModel(id: 2, type: "INCOME", amount: -100000, category: "TRANSPORTATION", description: "Salary", date: Date(), createdAt: "", updatedAt: "")
-//		let transaction3 = TransactionModel(id: 3, type: "EXPENSE", amount: 100000, category: "SHOPPING", description: "Salary", date: Date(), createdAt: "", updatedAt: "")
-//		let transaction4 = TransactionModel(id: 4, type: "INCOME", amount: -100000, category: "OTHERS", description: "Salary", date: Date().addingTimeInterval(-86400), createdAt: "", updatedAt: "")
-//		let transaction5 = TransactionModel(id: 5, type: "EXPENSE", amount: 100000, category: "RESTAURANT", description: "Salary", date: Date().addingTimeInterval(-86400*2), createdAt: "", updatedAt: "")
-//		let transaction11 = TransactionModel(id: 6, type: "INCOME", amount: 100000, category: "SALARY", description: "Salary", date: Date().addingTimeInterval(-86400*30), createdAt: "", updatedAt: "")
-//		let transaction22 = TransactionModel(id: 7, type: "EXPENSE", amount: -100000, category: "FREELANCE", description: "Salary", date: Date().addingTimeInterval(-86400*31), createdAt: "", updatedAt: "")
-//		let transaction33 = TransactionModel(id: 8, type: "INCOME", amount: 100000, category: "INVESTMENT", description: "Salary", date: Date().addingTimeInterval(-86400*60), createdAt: "", updatedAt: "")
-//		let transaction44 = TransactionModel(id: 9, type: "EXPENSE", amount: -100000, category: "SALARY", description: "Salary", date: Date().addingTimeInterval(-86400*61), createdAt: "", updatedAt: "")
-//
-//		return [transaction1, transaction2, transaction3, transaction4, transaction5, transaction11, transaction22, transaction33, transaction44]
-//
-//	}
+	func createFakeTransactions() -> [TransactionModel] {
+		let transaction1 = TransactionModel(id: 1, userId: 1, type: "INCOME", amount: 100000, category: "SALARY", description: "Salary", date: Date(), createdAt: "", updatedAt: "")
+		let transaction2 = TransactionModel(id: 2, userId: 2, type: "INCOME", amount: -100000, category: "TRANSPORTATION", description: "Salary", date: Date(), createdAt: "", updatedAt: "")
+		let transaction3 = TransactionModel(id: 3, userId: 3, type: "EXPENSE", amount: 100000, category: "SHOPPING", description: "Salary", date: Date(), createdAt: "", updatedAt: "")
+		let transaction4 = TransactionModel(id: 4, userId: 4, type: "INCOME", amount: -100000, category: "OTHERS", description: "Salary", date: Date().addingTimeInterval(-86400), createdAt: "", updatedAt: "")
+		let transaction5 = TransactionModel(id: 5, userId: 5, type: "EXPENSE", amount: 100000, category: "RESTAURANT", description: "Salary", date: Date().addingTimeInterval(-86400*2), createdAt: "", updatedAt: "")
+		let transaction11 = TransactionModel(id: 6, userId: 6, type: "INCOME", amount: 100000, category: "SALARY", description: "Salary", date: Date().addingTimeInterval(-86400*30), createdAt: "", updatedAt: "")
+		let transaction22 = TransactionModel(id: 7, userId: 7, type: "EXPENSE", amount: -100000, category: "FREELANCE", description: "Salary", date: Date().addingTimeInterval(-86400*31), createdAt: "", updatedAt: "")
+		let transaction33 = TransactionModel(id: 8, userId: 8, type: "INCOME", amount: 100000, category: "INVESTMENT", description: "Salary", date: Date().addingTimeInterval(-86400*60), createdAt: "", updatedAt: "")
+		let transaction44 = TransactionModel(id: 9, userId: 9, type: "EXPENSE", amount: -100000, category: "SALARY", description: "Salary", date: Date().addingTimeInterval(-86400*61), createdAt: "", updatedAt: "")
+
+		return [transaction1, transaction2, transaction3, transaction4, transaction5, transaction11, transaction22, transaction33, transaction44]
+	}
+
 	func createTransactionDict(from transactions: [TransactionModel], by format: FormatString.Format = .monthYear) -> [String: [TransactionModel]] {
 		let sortedTransactions = transactions.sorted { (first, second) -> Bool in
 			if let first = first.date, let second = second.date {
@@ -50,6 +50,7 @@ class HomeViewController: UIViewController {
 	@IBOutlet weak var collectionViewA: UICollectionView!
 	@IBOutlet weak var totalTransactionLabel: UILabel!
 	@IBOutlet weak var threedotsButton: UIButton!
+	@IBOutlet weak var emptyTransaction: EmptyTransaction!
 
 	let collectionViewAIdentifier = "CollectionViewCellA"
 	let tableViewTotalFlowID = "TableFlowID"
@@ -62,6 +63,7 @@ class HomeViewController: UIViewController {
 	var selectedMonth: String? {
 		didSet {
 			getTransactions(dateString: selectedMonth ?? DateFormatter(format: .monthYear).string(from: Date()))
+			APIManager.shareInstance.selectedMonth = selectedMonth
 		}
 	}
 
@@ -72,7 +74,6 @@ class HomeViewController: UIViewController {
 
 	var transactionDict: [String: [TransactionModel]] = [:] {
 		didSet {
-			guard transactionDict.count != 0 else { return }
 			if let selectedMonth = selectedMonth {
 				reloadTableViewData()
 				collectionViewA.reloadData()
@@ -85,6 +86,13 @@ class HomeViewController: UIViewController {
 		navigationController?.isNavigationBarHidden = true
 	}
 
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		let index: Int? = self.months.firstIndex(where: { $0 == selectedMonth })
+		guard let item = index else { return }
+		collectionViewA.scrollToItem(at: IndexPath(item: item, section: 0), at: .centeredHorizontally, animated: true)
+	}
+
     override func viewDidLoad() {
         super.viewDidLoad()
 		title = "Transactions"
@@ -94,7 +102,9 @@ class HomeViewController: UIViewController {
 
 //		loadDataIfNeed(transactions: createFakeTransactions())
 		getTransactions(dateString: DateFormatter(format: .monthYear).string(from: Date()))
+		selectedMonth = DateFormatter(format: .monthYear).string(from: Date())
     }
+
 	func reloadTableViewData() {
 		let defaultMonth = DateFormatter(format: .monthYear).string(from: Date())
 		let transactions = transactionDict[selectedMonth ?? defaultMonth] ?? []
@@ -230,11 +240,10 @@ extension HomeViewController: UICollectionViewDelegate {
 			let name = months[index]
 
 			self.selectedMonth = name
+			
 			// change data
-
-			collectionView.reloadData()
 			collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-			collectionView.reloadItems(at: [])
+			collectionView.reloadData()
 		}
 	}
 }
@@ -246,8 +255,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		let cellTypes = tableCellTypes
+		emptyTransaction.isHidden = (cellTypes.count != 1)
 		switch section {
 		case 0:
+			if cellTypes.count == 1 {
+
+				return 0
+			}
 			return 1
 		default:
 			if case let .group(transactions) = cellTypes[section] {
@@ -331,13 +345,25 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 }
 
+extension HomeViewController: AddEditViewControllerDelegate {
+	func addEditViewController(_ viewController: AddEditViewController) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+			self.getTransactions(dateString: self.selectedMonth ?? DateFormatter(format: .monthYear).string(from: Date()))
+		}
+	}
+}
+
 extension HomeViewController {
 	//dateString = "07/2020"
 	func getTransactions(dateString: String) {
 		APIManager.shareInstance.callingGetTransactionAPI(monthYearStr: dateString) { [weak self] transactions, error in
 			guard let self = self else { return }
-			self.transactionDict = self.createTransactionDict(from: transactions)
-
+			if let error = error {
+				self.showDefaultAlert(error)
+			} else {
+				guard let transactions = transactions else { return }
+				self.transactionDict = self.createTransactionDict(from: transactions)
+			}
 		}
 	}
 }

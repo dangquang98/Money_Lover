@@ -40,6 +40,11 @@ extension UIViewController {
 		UIApplication.shared.windows.first?.rootViewController = self
 		UIApplication.shared.windows.first?.makeKeyAndVisible()
 	}
+	func showDefaultAlert(_ message: String) {
+		let alert = UIAlertController(title: "CONFIRMATION", message: "Message", preferredStyle: UIAlertController.Style.alert)
+		alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+		self.present(alert, animated: true, completion: nil)
+	}
 }
 
 extension UITableView {

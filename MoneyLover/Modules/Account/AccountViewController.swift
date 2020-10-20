@@ -21,9 +21,6 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
     }
 	@IBAction func logoutTap(_ sender: Any) {
-		UserDefaultToken.tokenInstance.removeToken()
-		if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-			appDelegate.changeWindow(to: .onboarding)
-		}
+		UserDefaultToken.tokenInstance.forceLoggout()
 	}
 }

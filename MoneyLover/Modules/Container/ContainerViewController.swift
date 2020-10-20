@@ -60,7 +60,10 @@ class ContainerViewController: UIViewController {
 			homeModule.view.isHidden = false
 			accountModule.view.isHidden = true
 		case .add:
+			// home vC
+			guard let homeViewController = homeModule.viewControllers.first as? HomeViewController else { return }
 			let addController = AddEditViewController.instantiate()
+			addController.delegate = homeViewController
 			let navigationController = UINavigationController(rootViewController: addController)
 			addController.addEditType = .addTransaction
 			self.present(navigationController, animated: true, completion: nil)
@@ -73,6 +76,7 @@ class ContainerViewController: UIViewController {
 
 extension ContainerViewController: TabBarDelegate {
 	func didTapTabbarItem(_ sender: TabBar, index: Int) {
+		homeModule.viewControllers.first as? HomeViewController
 		selectedTabbarItem = TabbarItem(rawValue: index) ?? .transaction
 	}
 }
